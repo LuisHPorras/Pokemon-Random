@@ -2,10 +2,10 @@
 
 Jugador::Jugador(void)
 {
-	anim[ORIENTACION_ABAJO].textura.spritHorizontal(anim[ORIENTACION_ABAJO].clips, "player/player_down_anim2.png");
-	anim[ORIENTACION_ARRIBA].textura.spritHorizontal(anim[ORIENTACION_ARRIBA].clips, "player/player_up_anim2.png");
-	anim[ORIENTACION_IZQ].textura.spritHorizontal(anim[ORIENTACION_IZQ].clips, "player/player_left_anim2.png");
-	anim[ORIENTACION_DCHA].textura.spritHorizontal(anim[ORIENTACION_DCHA].clips, "player/player_right_anim2.png");
+	anim[ORIENTACION_ABAJO].spritHorizontal(anim[ORIENTACION_ABAJO].clips, "player/player_down_anim2.png");
+	anim[ORIENTACION_ARRIBA].spritHorizontal(anim[ORIENTACION_ARRIBA].clips, "player/player_up_anim2.png");
+	anim[ORIENTACION_IZQ].spritHorizontal(anim[ORIENTACION_IZQ].clips, "player/player_left_anim2.png");
+	anim[ORIENTACION_DCHA].spritHorizontal(anim[ORIENTACION_DCHA].clips, "player/player_right_anim2.png");
 
 	posicion.x = 0;
 	posicion.y = 0;

@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include <SDL_image.h>
+#include "Constantes.h"
 #include "Textura.h"
 
 extern SDL_Window* gWindow;
@@ -17,7 +18,8 @@ public:
 	Mundo(void);
 	~Mundo(void);
 
-	bool init();
+	bool inicializaSdl();
+	bool inicializa();
 	void close();
 
 private:
