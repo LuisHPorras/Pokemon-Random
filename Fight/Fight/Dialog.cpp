@@ -9,7 +9,7 @@ Dialog::Dialog():
 	poption3(100, 130),
 	poption4(475, 130)
 {
-	pcursor = poption1;
+	pcursor = poption4;
 	state = options;
 }
 
@@ -179,19 +179,26 @@ void Dialog::events(SDL_Event &e)
 				if (pcursor == poption1)
 				{
 					state = attack;
+					pcursor = poption1;
 					break;
 				}
 				if (pcursor == poption2)
 				{
 					state = pokemon;
+					pcursor = poption1;
+					break;
 				}
 				if (pcursor == poption3)
 				{
 					state = object;
+					pcursor = poption1;
+					break;
 				}
 				if (pcursor == poption4)
 				{
 					state = escape;
+					pcursor = poption1;
+					break;
 				}
 			}
 			break;
@@ -201,6 +208,7 @@ void Dialog::events(SDL_Event &e)
 			else
 			{
 				state = options;
+				pcursor = poption1;
 				break;
 			}
 		}
