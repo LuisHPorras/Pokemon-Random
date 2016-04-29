@@ -12,7 +12,7 @@ public:
 	Textura textura;
 	SDL_Rect clips[FRAME_TOTAL];
 
-	//Renderiza la animacion
+	bool spritHorizontal(SDL_Rect *gSpriteClips, std::string path);
 	void renderizar(Vector2D posicion, bool movement);
 
 	Animacion(void);

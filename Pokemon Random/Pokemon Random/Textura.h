@@ -19,20 +19,17 @@ public:
 	void setBlendMode(SDL_BlendMode blending);
 	void setAlpha(Uint8 alpha);
 	
-	
 	bool cargarDesdeArchivo(std::string path);
-	bool spritHorizontal(SDL_Rect *gSpriteClips, std::string path);
-	void renderizar(int x, int y, SDL_Rect* clip=NULL);
+	void renderizar(int x, int y, SDL_Rect* clip);
+	void renderizar(int x, int y);
 
 private:
-	//The actual hardware texture
-	SDL_Texture* mTexture;
+	//Textura en SDL
+	SDL_Texture* sdlTexture;
 
-	//Image dimensions
+	//Dimensiones de la imagen
 	int width;
 	int height;
-
-	//Loads image at specified path
 	
 	void free();
 

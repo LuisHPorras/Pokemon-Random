@@ -10,9 +10,6 @@
 
 //using namespace std;
 
-//Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
@@ -30,7 +27,7 @@ int main(int argc, char* args[])
 	
 
 	//Start up SDL and create window
-	if (!mundo.init())
+	if (!mundo.inicializaSdl())
 	{
 		printf("Failed to initialize!\n");
 	}
@@ -55,8 +52,8 @@ int main(int argc, char* args[])
 			{
 				SDL_RenderClear(gRenderer);
 				
-				fondo.renderizar((SCREEN_WIDTH - fondo.getWidth()) / 2, (SCREEN_HEIGHT - fondo.getHeight()) / 2, NULL);
-
+				fondo.renderizar((SCREEN_WIDTH - fondo.getWidth()) / 2, (SCREEN_HEIGHT - fondo.getHeight()) / 2);
+				
 				//User requests quit
 				if (e.type == SDL_QUIT)
 				{

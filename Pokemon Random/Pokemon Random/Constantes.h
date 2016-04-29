@@ -1,8 +1,13 @@
 #ifndef CONSTANTES_DEF
 #define CONSTANTES_DEF
 
-const int PLAYER_WIDTH = 24;
-const int PLAYER_HEIGTH = 24;
+//Screen dimension constants
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
+
+
+const int PLAYER_WIDTH = 64;
+const int PLAYER_HEIGTH = 64;
 
 const int FRAMES_RATE = 8;
 

@@ -8,8 +8,29 @@ Mundo::~Mundo(void)
 {
 }
 
-bool Mundo::init()
+bool Mundo::inicializaSdl()
 {
+	//Initialize SDL
+	SDL_Init(SDL_INIT_VIDEO);
+
+	//Set texture filtering to linear
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
+
+	//Create window
+	gWindow = SDL_CreateWindow("Pokemon Random", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+
+	//Create vsynced renderer for window
+	gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+	//Initialize renderer color
+	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+
+	//Initialize PNG loading
+	int imgFlags = IMG_INIT_PNG;
+	IMG_Init(imgFlags);
+
+	return true;
+	/*
 	//Initialization flag
 	bool success = true;
 
@@ -60,6 +81,7 @@ bool Mundo::init()
 	}
 
 	return success;
+	*/
 }
 
 void Mundo::close()
