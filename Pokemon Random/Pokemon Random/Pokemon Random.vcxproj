@@ -41,8 +41,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\SDL2_image-2.0.1\include;C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\SDL2-2.0.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\SDL2_image-2.0.1\lib\x86;C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\SDL2-2.0.4\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Maria Jose\Documents\Javier\Universidad\3º\Informática\SDL\SDL2_image-2.0.1\include;C:\Users\Maria Jose\Documents\Javier\Universidad\3º\Informática\SDL\SDL2-2.0.4\include;C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\SDL2_image-2.0.1\include;C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\SDL2-2.0.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Maria Jose\Documents\Javier\Universidad\3º\Informática\SDL\SDL2_image-2.0.1\lib\x86;C:\Users\Maria Jose\Documents\Javier\Universidad\3º\Informática\SDL\SDL2-2.0.4\lib\x86;C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\SDL2_image-2.0.1\lib\x86;C:\Program Files %28x86%29\Microsoft Visual Studio 11.0\SDL2-2.0.4\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
