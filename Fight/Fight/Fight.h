@@ -32,5 +32,8 @@ public:
 	
 	//EVENT MANAGEMENT
 	void events(SDL_Event &e, bool &quit);
+
+	//FRIENDS
+	friend class Dialog;
 };
 

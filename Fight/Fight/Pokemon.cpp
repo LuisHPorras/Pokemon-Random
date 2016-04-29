@@ -14,8 +14,6 @@ Pokemon::Pokemon(int xHP, int yHP, int xName, int yName, int xLv, int yLv):
 {
 	width = 0;
 	height = 0;
-	maxHP = 100;
-	currentHP = maxHP;
 	Lv = 50;
 	sLv = to_string(Lv);
 }

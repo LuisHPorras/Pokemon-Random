@@ -18,7 +18,7 @@ class Player: public Pokemon
 	string scurrentHp;
 
 	//ATTACKS
-	Attack drill_peck;
+	Attack DrillPeck;
 public:
 	//CONSTRUCTION - DESTRUCTION
 	Player();
@@ -29,5 +29,11 @@ public:
 	void render(int x, int y);
 	void free();
 	void updateXHealth();
+
+	//INTERFACE INLINE METHODS
+	Attack getDrillPeck(){return DrillPeck;}
+
+	//FRIENDS
+	friend class Interaccion;
 };
 

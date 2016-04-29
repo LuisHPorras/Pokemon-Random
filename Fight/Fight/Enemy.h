@@ -7,5 +7,8 @@ public:
 	//CONSTRUCTION - DESTRUCTION
 	Enemy(int xh = 0);
 	~Enemy();
+
+	//FRIENDS
+	friend class Interaccion;
 };
 

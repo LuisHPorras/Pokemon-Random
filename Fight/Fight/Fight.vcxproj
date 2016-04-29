@@ -72,6 +72,7 @@
     <ClCompile Include="Dialog.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fight.cpp" />
+    <ClCompile Include="Interaccion.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -83,6 +84,7 @@
     <ClInclude Include="Dialog.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Fight.h" />
+    <ClInclude Include="Interaccion.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Texture.h" />

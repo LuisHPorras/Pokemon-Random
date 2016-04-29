@@ -14,5 +14,8 @@ public:
 
 	//INTERFACE INLINE METHODS
 	int getPower(){return power;}
+
+	//FRIENDS
+	friend class Interaccion;
 };
 

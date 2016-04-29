@@ -128,6 +128,14 @@ bool Fight::loadMedia()
 
 void Fight::render()
 {
+	background.free();
+	dialog.free();
+	player.free();
+	enemy.free();
+
+	loadMedia();
+
+
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(gRenderer);
 

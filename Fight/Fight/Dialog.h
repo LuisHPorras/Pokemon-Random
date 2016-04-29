@@ -32,7 +32,9 @@ class Dialog
 		attack,
 		pokemon,
 		object,
-		escape
+		escape,
+		error,
+		attacking
 	}state;
 public:
 	//CONSTRUCTION - DESTRUCTION

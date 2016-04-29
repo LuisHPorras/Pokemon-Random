@@ -1,6 +1,9 @@
 #include "Dialog.h"
+#include "Interaccion.h"
+#include "Fight.h"
 
 extern SDL_Color textColor;
+extern Fight fight;
 
 //CONSTRUCTION - DESTRUCTION
 Dialog::Dialog():
@@ -9,7 +12,7 @@ Dialog::Dialog():
 	poption3(100, 130),
 	poption4(475, 130)
 {
-	pcursor = poption4;
+	pcursor = poption1;
 	state = options;
 }
 
@@ -106,6 +109,20 @@ bool Dialog::textUpdate(states cstate)
 		soption3 = " ";
 		soption4 = " ";
 	}
+	if (cstate == error)
+	{
+		soption1 = "Sorry dude, not yet implemented";
+		soption2 = " ";
+		soption3 = " ";
+		soption4 = " ";
+	}
+	if (cstate == attacking)
+	{
+		soption1 = "Dodrio used Drill Peck";
+		soption2 = " ";
+		soption3 = " ";
+		soption4 = " ";
+	}
 
 	//Loads text sufaces
 	if (!option1.loadFromRenderedText(soption1, textColor))
@@ -142,36 +159,56 @@ void Dialog::events(SDL_Event &e)
 		switch(e.key.keysym.sym)
 		{
 		case SDLK_UP:
-			if (pcursor == poption1 || pcursor == poption2)
-				break;
-			if (pcursor == poption3)
+			if (state == error || state == attacking)
 				pcursor = poption1;
-			if (pcursor == poption4)
-				pcursor = poption2;
+			else
+			{
+				if (pcursor == poption1 || pcursor == poption2)
+					break;
+				if (pcursor == poption3)
+					pcursor = poption1;
+				if (pcursor == poption4)
+					pcursor = poption2;
+			}
 			break;
 		case SDLK_DOWN:
-			if (pcursor == poption3 || pcursor == poption4)
-				break;
-			if (pcursor == poption1)
-				pcursor = poption3;
-			if (pcursor == poption2)
-				pcursor = poption4;
+			if (state == error || state == attacking)
+				pcursor = poption1;
+			else
+			{
+				if (pcursor == poption3 || pcursor == poption4)
+					break;
+				if (pcursor == poption1)
+					pcursor = poption3;
+				if (pcursor == poption2)
+					pcursor = poption4;
+			}
 			break;
 		case SDLK_LEFT:
-			if (pcursor == poption1 || pcursor == poption3)
-				break;
-			if (pcursor == poption2)
+			if (state == error || state == attacking)
 				pcursor = poption1;
-			if (pcursor == poption4)
-				pcursor = poption3;
+			else
+			{
+				if (pcursor == poption1 || pcursor == poption3)
+					break;
+				if (pcursor == poption2)
+					pcursor = poption1;
+				if (pcursor == poption4)
+					pcursor = poption3;
+			}
 			break;
 		case SDLK_RIGHT:
-			if (pcursor == poption2 || pcursor == poption4)
-				break;
-			if (pcursor == poption1)
-				pcursor = poption2;
-			if (pcursor == poption3)
-				pcursor = poption4;
+			if (state == error || state == attacking)
+				pcursor = poption1;
+			else
+			{
+				if (pcursor == poption2 || pcursor == poption4)
+					break;
+				if (pcursor == poption1)
+					pcursor = poption2;
+				if (pcursor == poption3)
+					pcursor = poption4;
+			}
 			break;
 		case SDLK_a:
 			if (state == options)
@@ -182,24 +219,26 @@ void Dialog::events(SDL_Event &e)
 					pcursor = poption1;
 					break;
 				}
-				if (pcursor == poption2)
+				if (pcursor == poption2 || pcursor == poption3 || pcursor == poption4)
 				{
-					state = pokemon;
+					state = error;
 					pcursor = poption1;
 					break;
 				}
-				if (pcursor == poption3)
+			}
+			if (state == attack)
+			{
+				if (pcursor == poption1)
 				{
-					state = object;
-					pcursor = poption1;
+					Interaccion::attack(fight.player, fight.enemy, fight.player.getDrillPeck());
+					state = attacking;
 					break;
 				}
-				if (pcursor == poption4)
-				{
-					state = escape;
-					pcursor = poption1;
-					break;
-				}
+			}
+			if (state == error || state == attacking)
+			{
+				state = options;
+				break;
 			}
 			break;
 		case SDLK_s:

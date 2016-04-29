@@ -4,12 +4,16 @@ extern SDL_Color textColor;
 
 //CONSTRUCTION - DESTRUCTION
 Player::Player():
-	//HP, Name, Level
+	//HP, Name, Level Position
 	Pokemon(216, 75, 60, 33, 312+10, 33),
 	pcurrentHp(210, 92),
 	pmaxHp(286 + 10, 92),
-	drill_peck("Drill Peck", 80)
+	DrillPeck("Drill Peck", 80)
 {
+	maxHP = 60;
+	currentHP = maxHP;
+	attack = 110;
+	defence = 70;
 	smaxHp = to_string(maxHP);
 	scurrentHp = to_string(currentHP);
 	groundMultiplier = 1;
