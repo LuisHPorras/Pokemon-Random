@@ -84,7 +84,7 @@ bool Dialog::textUpdate(states cstate)
 	if (cstate == attack)
 	{
 		soption1 = "Drill Peck";
-		soption2 = "---";
+		soption2 = "Jump Kick";
 		soption3 = "---";
 		soption4 = "---";
 	}
@@ -118,7 +118,7 @@ bool Dialog::textUpdate(states cstate)
 	}
 	if (cstate == attacking)
 	{
-		soption1 = "Dodrio used Drill Peck";
+		soption1 = "Dodrio attacks Golem";
 		soption2 = " ";
 		soption3 = " ";
 		soption4 = " ";
@@ -232,6 +232,14 @@ void Dialog::events(SDL_Event &e)
 				{
 					Interaccion::attack(fight.player, fight.enemy, fight.player.getDrillPeck());
 					state = attacking;
+					pcursor = poption1;
+					break;
+				}
+				if (pcursor == poption2)
+				{
+					Interaccion::attack(fight.player, fight.enemy, fight.player.getJumpKick());
+					state = attacking;
+					pcursor = poption1;
 					break;
 				}
 			}

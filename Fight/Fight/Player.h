@@ -19,6 +19,7 @@ class Player: public Pokemon
 
 	//ATTACKS
 	Attack DrillPeck;
+	Attack JumpKick;
 public:
 	//CONSTRUCTION - DESTRUCTION
 	Player();
@@ -32,6 +33,7 @@ public:
 
 	//INTERFACE INLINE METHODS
 	Attack getDrillPeck(){return DrillPeck;}
+	Attack getJumpKick(){return JumpKick;}
 
 	//FRIENDS
 	friend class Interaccion;

@@ -8,7 +8,8 @@ Player::Player():
 	Pokemon(216, 75, 60, 33, 312+10, 33),
 	pcurrentHp(210, 92),
 	pmaxHp(286 + 10, 92),
-	DrillPeck("Drill Peck", 80)
+	DrillPeck("Drill Peck", flying, 80),
+	JumpKick("Jump Kick", fighting, 70)
 {
 	maxHP = 60;
 	currentHP = maxHP;
@@ -17,6 +18,7 @@ Player::Player():
 	smaxHp = to_string(maxHP);
 	scurrentHp = to_string(currentHP);
 	groundMultiplier = 1;
+	type = flying;
 }
 
 

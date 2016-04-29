@@ -35,6 +35,7 @@ protected:
 	int Lv;
 	int attack;
 	int defence;
+	types type;
 public:
 	//CONSTRUCTION - DESTRUCTION
 	Pokemon(int xHP=0, int yHP=0, int xName=0, int yName=0, int xLv=0, int yLv=0);

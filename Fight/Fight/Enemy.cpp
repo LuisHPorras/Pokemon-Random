@@ -11,6 +11,7 @@ Enemy::Enemy(int xh):
 	defence = 130;
 	Health.x = 0;
 	groundMultiplier = 1.75f;
+	type = rock;
 }
 
 Enemy::~Enemy()
