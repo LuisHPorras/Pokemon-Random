@@ -1,2 +1,25 @@
 ﻿  World.cpp
-  Adventure.vcxproj -> C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
+  Timer.cpp
+  Texture.cpp
+  Pokemon.cpp
+  Player_Trainer.cpp
+  Player.cpp
+  Movable_Trainer.cpp
+  Map.cpp
+  Main.cpp
+  Fight.cpp
+  Enemy.cpp
+  Animation.cpp
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(114): warning C4018: '>': signed/unsigned mismatch
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(128): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(137): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(149): warning C4018: '>': signed/unsigned mismatch
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(159): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(169): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(176): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(185): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(195): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Adventure.cpp
+  Generating Code...
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\player_trainer.cpp(79): warning C4715: 'Player_Trainer::loadFromFile': not all control paths return a value
+  Adventure.vcxproj -> C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe

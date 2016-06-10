@@ -71,8 +71,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\include;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\include;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\lib\x86;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\lib\x86;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\include;C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\include;C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\include;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\include;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\include;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\lib\x86;C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\lib\x86;C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\lib\x86;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\lib\x86;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\lib\x86;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
