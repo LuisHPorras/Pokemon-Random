@@ -48,11 +48,6 @@ bool Fight::loadMedia()
 
 void Fight::render()
 {
-	//Free textures
-	//background.free();
-
-	//loadMedia();
-
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
 	//Render textures

@@ -54,5 +54,5 @@ void Player::free()
 
 void Player::updateXData()
 {
-	posData.x = Fight::SCREEN_WIDTH - data.getWidth();
+	posData.x = Constants::SCREEN_WIDTH - data.getWidth();
 }

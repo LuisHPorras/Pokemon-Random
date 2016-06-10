@@ -99,6 +99,7 @@ void World::keyEvent(SDL_Event& e, bool& quit)
 
 void World::render()
 {
+	SDL_RenderClear(gRenderer);
 	if (state == Constants::FIGHT)
 		fight.render();
 	if (state == Constants::ADVENTURE)
