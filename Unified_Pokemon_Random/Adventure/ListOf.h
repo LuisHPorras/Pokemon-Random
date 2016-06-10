@@ -11,7 +11,7 @@ public:
 	~ListOf(void);
 
 	void operator+=(T* t);
-	void pop();
+	void erase();
 	T operator[](int index);
 };
 
@@ -25,7 +25,7 @@ template<class T> ListOf<T>::ListOf(void)
 
 template<class T> ListOf<T>::~ListOf(void)
 {
-	pop();
+	erase();
 }
 
 template<class T> void ListOf<T>::operator+=(T* t)
@@ -37,7 +37,7 @@ template<class T> void ListOf<T>::operator+=(T* t)
 		list[number++] = t;
 }
 
-template<class T> void ListOf<T>::pop()
+template<class T> void ListOf<T>::erase()
 {
 	for (int i=0; i < number; i++)
 		delete list[i];
@@ -52,4 +52,3 @@ template<class T> T ListOf<T>::operator[](int index)
 		index = number - 1;
 	return *list[index];
 }
-

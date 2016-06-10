@@ -1,9 +1,9 @@
 #include "Player.h"
 
 //CONSTRUCTION - DESTRUCTION
-Player::Player(void):
+Player::Player(int index):
 	//HP, Name and Level positions
-	Pokemon(216, 75, 60, 33, 312+10, 33),
+	Pokemon(index, 216, 75, 60, 33, 312+10, 33),
 	pcurrentHP(210, 92),
 	pmaxHP(286+10, 92)
 {
@@ -18,9 +18,9 @@ Player::~Player(void)
 }
 
 //GRAPHIC METHODS
-bool Player::loadFromFile(string pbody, string pground, string pdata)
+bool Player::loadFromFile(string pground, string pdata)
 {
-	bool success = Pokemon::loadFromFile(pbody, pground, pdata);
+	bool success = Pokemon::loadFromFile(pground, pdata);
 	updateXData();
 
 	if (!tmaxHP.loadFromRenderedText(smaxHP))

@@ -14,7 +14,8 @@ public:
 	static const int PLAYER_WIDTH = 64;
 	static const int PLAYER_HEIGTH = 64;
 
-	//static const int FRAMES_RATE = 8;
+	static const int NUM_PKMN_DEX = 2;
+	static const int NUM_STATS_DEX = 6;
 
 	enum State
 	{

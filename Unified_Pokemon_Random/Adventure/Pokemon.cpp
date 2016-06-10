@@ -1,10 +1,11 @@
 #include "Pokemon.h"
 
 //CONSTRUCTION - DESTRUCTION
-Pokemon::Pokemon(int xHP, int yHP, int xName, int yName, int xLv, int yLv):
+Pokemon::Pokemon(int inDexNum, int xHP, int yHP, int xName, int yName, int xLv, int yLv):
 	HP(xHP, yHP),
 	pName(xName, yName),
-	pLv(xLv, yLv)
+	pLv(xLv, yLv),
+	dexNum(inDexNum)
 {
 	width = 0;
 	height = 0;
@@ -17,11 +18,12 @@ Pokemon::~Pokemon(void)
 }
 
 //MEDIA METHODS
-bool Pokemon::loadFromFile(string pbody, string pground, string pdata)
+bool Pokemon::loadFromFile(string pground, string pdata)
 {
 	bool success = true;
+	loadStats(dexNum);
 
-	if (!body.loadFromFile(pbody))
+	if (!body.loadFromFile(pathBody))
 	{
 		cout<<"Failed to load body texture image!"<<endl;
 		success = false;
@@ -87,3 +89,16 @@ void Pokemon::free()
 	name.free();
 	tLv.free();
 }
+
+void Pokemon::loadStats(int index)
+{
+	//pokedex.getLine(dexNum);
+	sName = pokedex.getData(index, 0);
+	type = pokedex.getType(index, 1);
+	maxHP = pokedex.getDataInt(index, 2);
+	attack = pokedex.getDataInt(index, 3);
+	defence = pokedex.getDataInt(index, 4);
+	pathBody = pokedex.getData(index, 5);
+}
+
+Text_Manager Pokemon::pokedex("data/Pokedex.txt");

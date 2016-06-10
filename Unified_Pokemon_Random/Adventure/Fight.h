@@ -9,6 +9,7 @@
 #include "Vector2D.h"
 #include "ListOf.h"
 #include "Pokemon.h"
+#include "Player.h"
 
 using namespace std;
 

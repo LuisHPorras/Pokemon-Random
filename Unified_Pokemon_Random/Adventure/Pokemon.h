@@ -6,6 +6,7 @@
 #include "Constants.h"
 #include "ListOf.h"
 #include "Attack.h"
+#include "Text_Manager.h"
 
 extern SDL_Renderer* gRenderer;
 
@@ -29,6 +30,7 @@ protected:
 	//DATA STRINGS
 	string sName;
 	string sLv;
+	string pathBody;
 
 	//DYMENSIONS
 	int width;
@@ -43,19 +45,28 @@ protected:
 	Constants::Types type;
 
 	ListOf<Attack> attacks;
+
+	static Text_Manager pokedex;
 public:
+
+
+	int dexNum;
+
 	//CONSTRUCTION - DESTRUCTION
-	Pokemon(int xHP = 0, int yHP = 0, int xName = 0, int yName = 0, int xLv = 0, int yLv = 0);
+	Pokemon(int inDexNum, int xHP = 0, int yHP = 0, int xName = 0, int yName = 0, int xLv = 0, int yLv = 0);
 	~Pokemon(void);
 
 	//MEDIA METHODS
-	virtual bool loadFromFile(string pbody, string pground, string pdata);
+	virtual bool loadFromFile(string pground, string pdata);
 	virtual void render(int x, int y);
 	virtual void free();
+	void loadStats(int index);
 
 	//INTERFACE INLINE METHODS
 	int getWidth(){return width;}
 	int getHeight(){return height;}
 	int getCurrentHP(){return currentHP;}
 };
+
+
 

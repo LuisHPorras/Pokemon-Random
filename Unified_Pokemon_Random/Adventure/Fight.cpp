@@ -7,6 +7,7 @@ Fight::Fight(void)
 	for (int i=0; i < 4; i++)
 		option[i] = new Vector2D(posOpt[i*2], posOpt[i*2+1]);
 	cursor = *option[0];
+	pokemon += new Player(0);
 }
 
 
@@ -17,13 +18,11 @@ Fight::~Fight(void)
 }
 
 //START-STOP METHODS
-
-
 void Fight::close()
 {
 	//Free textures
 	background.free();
-
+	pokemon[0].free();
 }
 
 //MEDIA METHODS
@@ -33,6 +32,12 @@ bool Fight::loadMedia()
 
 	//Load textures
 	if (!background.loadFromFile("Texturas/battle_background.png"))
+	{
+		cout << "Failed to load background texture image!" << endl;
+		success = false;
+	}
+
+	if (!pokemon[0].loadFromFile("Texturas/battle_base_wild_player.png", "Texturas/healthbar_player.png"))
 	{
 		cout << "Failed to load background texture image!" << endl;
 		success = false;
@@ -52,6 +57,7 @@ void Fight::render()
 
 	//Render textures
 	background.render(0, 0);
+	pokemon[0].render(0, 0);
 
 }
 

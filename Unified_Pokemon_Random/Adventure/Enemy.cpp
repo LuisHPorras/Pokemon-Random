@@ -1,11 +1,11 @@
-#include "Enemy.h"
-
-
-Enemy::Enemy(void)
-{
-}
-
-
-Enemy::~Enemy(void)
-{
-}
+//#include "Enemy.h"
+//
+//
+//Enemy::Enemy(void)
+//{
+//}
+//
+//
+//Enemy::~Enemy(void)
+//{
+//}

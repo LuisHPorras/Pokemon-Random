@@ -71,8 +71,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\include;C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\include;C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\include;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\include;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\include;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\lib\x86;C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\lib\x86;C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\lib\x86;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2-2.0.4\lib\x86;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_ttf-2.0.14\lib\x86;C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\SDL\SDL2_image-2.0.1\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>SDL\SDL2_image-2.0.1\include;SDL\SDL2-2.0.4\include;SDL\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
+    <LibraryPath>SDL\SDL2-2.0.4\lib\x86;SDL\SDL2_image-2.0.1\lib\x86;SDL\SDL2_ttf-2.0.14\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -155,12 +155,14 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Fight.h" />
+    <ClInclude Include="ListOf.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Movable_Trainer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Player_Trainer.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Text_Manager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="World.h" />
@@ -179,6 +181,7 @@
     <ClCompile Include="Player_Trainer.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Text_Manager.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="World.cpp" />

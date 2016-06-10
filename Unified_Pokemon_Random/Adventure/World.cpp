@@ -79,11 +79,11 @@ void World::keyEvent(SDL_Event& e, bool& quit)
 {
 	switch (e.key.keysym.sym)
 	{
-	case SDLK_a:
+	case SDLK_m:
 		state = Constants::ADVENTURE;
 		break;
 
-	case SDLK_f:
+	case SDLK_n:
 		state = Constants::FIGHT;
 		break;
 		

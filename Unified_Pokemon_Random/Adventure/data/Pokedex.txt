@@ -1,0 +1,2 @@
+Dodrio	0	60	110	70	Texturas/dodrio_back.png
+Golem	2	80	110	130	Texturas/golem_front.png
