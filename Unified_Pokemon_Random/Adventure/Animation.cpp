@@ -13,13 +13,15 @@ Animation::~Animation(void)
 }
 
 //Load sprite image from the given path
-void Animation::loadSprite(std::string path)
+bool Animation::loadSprite(std::string path)
 {
 	if (!texture.loadFromFile(path.c_str()))
 	{
-		printf("Failed to load animation texture!\n");
+		cout << "Failed to load animation texture!\n" << endl;
 		system("PAUSE");
+		return false;
 	}
+	return true;
 }
 
 //Set the rectangles in the sprite that are going to be the clips of the animation. 

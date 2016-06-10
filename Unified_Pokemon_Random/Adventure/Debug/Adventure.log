@@ -1,4 +1,5 @@
 ﻿  World.cpp
+<<<<<<< HEAD
   Vector2D.cpp
   Timer.cpp
 c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\timer.h(4): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
@@ -27,3 +28,7 @@ c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adven
   Animation.cpp
 c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.h(4): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
   Generating Code...
+=======
+c:\users\pc\desktop\pokemon-random\unified_pokemon_random\adventure\world.cpp(90): warning C4102: 'deafault': unreferenced label
+  Adventure.vcxproj -> C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
+>>>>>>> origin/development

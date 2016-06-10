@@ -16,7 +16,7 @@ public:
 	Animation(void);
 	~Animation(void);
 
-	void loadSprite(std::string path);
+	bool loadSprite(std::string path);
 	void setClips(int inFrames, int *xvec, int *yvec, int *wvec, int *hvec);
 	void setSequence(int dim, int *inSequence, int *inTimeInterval);
 	void setSequenceB(int dim, int *inSequence);
@@ -24,7 +24,6 @@ public:
 	void setSpaceInterval(Vector2D inStartPosition, Vector2D inEndPosition);
 	bool isEnded();
 	void start();
-	void startB();
 	void start(Vector2D inpos);
 	void animate();
 	void animateB(int inposx, int inposy, int frame);

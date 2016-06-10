@@ -12,10 +12,6 @@
 
 using namespace std;
 
-extern SDL_Window* gWindow;
-extern SDL_Renderer* gRenderer;
-extern TTF_Font* gFont;
-
 class Fight
 {
 	//SCENE
@@ -40,7 +36,6 @@ public:
 	~Fight(void);
 
 	//START-STOP METHODS
-	bool init();
 	void close();
 
 	//MEDIA METHODS

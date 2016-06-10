@@ -16,6 +16,13 @@ public:
 
 	//static const int FRAMES_RATE = 8;
 
+	enum State
+	{
+		ADVENTURE,
+		FIGHT,
+		STATE_TOTAL
+	};
+
 	enum Orientations
 	{
 		ORIENTATION_DOWN,
