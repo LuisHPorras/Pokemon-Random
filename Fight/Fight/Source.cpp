@@ -1,6 +1,6 @@
-#include "Fight.h"
-
-using namespace std;
+#include <SDL.h>
+#include <SDL_ttf.h>
+#include "src\Fight.h"
 
 SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
@@ -28,7 +28,6 @@ int main(int argc, char* args[])
 			}
 		}
 	}
-
 	fight.close();
 	return 0;
 }

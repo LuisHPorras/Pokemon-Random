@@ -10,6 +10,30 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="src\Attack.cpp" />
+    <ClCompile Include="src\Constants.cpp" />
+    <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\Fight.cpp" />
+    <ClCompile Include="src\ListOf.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Pokemon.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\Vector2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Attack.h" />
+    <ClInclude Include="src\Constants.h" />
+    <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\Fight.h" />
+    <ClInclude Include="src\ListOf.h" />
+    <ClInclude Include="src\ListOf.hpp" />
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\Pokemon.h" />
+    <ClInclude Include="src\Texture.h" />
+    <ClInclude Include="src\Vector2D.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DDF6F667-B1D0-4EC9-A3B3-C86EA0671CC5}</ProjectGuid>
     <RootNamespace>Fight</RootNamespace>
@@ -67,29 +91,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Attack.cpp" />
-    <ClCompile Include="Dialog.cpp" />
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Fight.cpp" />
-    <ClCompile Include="Interaccion.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Pokemon.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Vector2D.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Attack.h" />
-    <ClInclude Include="Dialog.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Fight.h" />
-    <ClInclude Include="Interaccion.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Pokemon.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Vector2D.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

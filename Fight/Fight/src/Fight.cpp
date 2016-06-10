@@ -1,18 +1,25 @@
 #include "Fight.h"
 
-using namespace std;
-
-extern SDL_Window* gWindow;
-extern SDL_Renderer* gRenderer;
-extern TTF_Font* gFont;
-
 //CONSTRUCTION - DESTRUCTION
-Fight::Fight()
+Fight::Fight(void)
 {
+	Vector2D* aux = new Vector2D(100, 40);
+	option[0] = *aux;
+	delete aux;
+	aux = new Vector2D(475, 40);
+	option[1] = *aux;
+	delete aux;
+	aux = new Vector2D(100, 130);
+	option[2] = *aux;
+	delete aux;
+	aux = new Vector2D(475, 130);
+	option[3] = *aux;
+	delete aux;
+	cursor = option[0];
 }
 
 
-Fight::~Fight()
+Fight::~Fight(void)
 {
 }
 
@@ -33,7 +40,7 @@ bool Fight::init()
 		gWindow = SDL_CreateWindow("Pokemon Random", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 		if (gWindow == NULL)
 		{
-			std::cout<<"Window could not be created! SDL Error: "<<SDL_GetError()<<std::endl;
+			cout<<"Window could not be created! SDL Error: "<<SDL_GetError()<<endl;
 			system("pause");
 			success = false;
 		}
@@ -56,18 +63,19 @@ bool Fight::init()
 					system("pause");
 					success = false;
 				}
-
 				if (TTF_Init() == -1)
 				{
 					cout<<"SDL_ttf could not initialize! SDL_ttf Error: "<<TTF_GetError()<<endl;
+					system("pause");
+					success = false;
 				}
 				else
 				{
 					gFont = TTF_OpenFont("Texturas/pokemon_ingame_bold.ttf", 28);
 					if (gFont == NULL)
 					{
-						cout<<"Failed to load ingame font! SDL_ttf Error: "<<TTF_GetError()<<endl;
-						system ("pause");
+						cout<<"Failed to load image font! SDL_ttf Error: "<<TTF_GetError()<<endl;
+						system("pause");
 						success = false;
 					}
 				}
@@ -79,10 +87,8 @@ bool Fight::init()
 
 void Fight::close()
 {
+	//Free textures
 	background.free();
-	dialog.free();
-	player.free();
-	enemy.free();
 
 	SDL_DestroyRenderer(gRenderer);
 	SDL_DestroyWindow(gWindow);
@@ -94,32 +100,14 @@ void Fight::close()
 }
 
 //MEDIA METHODS
-
 bool Fight::loadMedia()
 {
 	bool success = true;
 
+	//Load textures
 	if (!background.loadFromFile("Texturas/battle_background.png"))
 	{
 		cout<<"Failed to load background texture image!"<<endl;
-		success = false;
-	}
-
-	if (!dialog.loadFromFile("Texturas/menu3.png", "Texturas/ball_small.png"))
-	{
-		cout<<"Failed to load dialog texture image!"<<endl;
-		success = false;
-	}
-
-	if (!player.loadFromFile("Texturas/dodrio_back.png", "Texturas/battle_base_wild_player.png", "Texturas/healthbar_player.png", "Dodrio"))
-	{
-		cout<<"Failed to load player texture image!"<<endl;
-		success = false;
-	}
-
-	if (!enemy.loadFromFile("Texturas/golem_front.png", "Texturas/battle_base_wild_enemy.png", "Texturas/healthbar_enemy.png", "Golem"))
-	{
-		cout<<"Failed to load player texture image!"<<endl;
 		success = false;
 	}
 
@@ -128,21 +116,16 @@ bool Fight::loadMedia()
 
 void Fight::render()
 {
+	//Free textures
 	background.free();
-	dialog.free();
-	player.free();
-	enemy.free();
 
 	loadMedia();
-
 
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(gRenderer);
 
+	//Render textures
 	background.render(0, 0);
-	dialog.render(0, SCREEN_HEIGHT - dialog.getHeight());
-	player.render(0, SCREEN_HEIGHT - dialog.getHeight() - player.getHeight());
-	enemy.render(SCREEN_WIDTH - enemy.getWidth(), 0);
 
 	SDL_RenderPresent(gRenderer);
 }
@@ -156,7 +139,12 @@ void Fight::events(SDL_Event &e, bool &quit)
 			quit = true;
 		else
 		{
-			dialog.events(e);
+			//Write events
+			coordinateStates(e);
 		}
 	}
+}
+
+void Fight::coordinateStates(SDL_Event &e)
+{
 }

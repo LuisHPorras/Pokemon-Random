@@ -1,30 +1,23 @@
 #include "Pokemon.h"
 
-using namespace std;
-
-extern SDL_Window* gWindow;
-extern SDL_Renderer* gRenderer;
-extern SDL_Color textColor;
-
 //CONSTRUCTION - DESTRUCTION
 Pokemon::Pokemon(int xHP, int yHP, int xName, int yName, int xLv, int yLv):
 	HP(xHP, yHP),
-	Name(xName, yName),
+	pName(xName, yName),
 	pLv(xLv, yLv)
 {
 	width = 0;
 	height = 0;
-	Lv = 50;
 	sLv = to_string(Lv);
 }
 
 
-Pokemon::~Pokemon()
+Pokemon::~Pokemon(void)
 {
 }
 
 //MEDIA METHODS
-bool Pokemon::loadFromFile(string pbody, string pground, string pdata, string tname)
+bool Pokemon::loadFromFile(string pbody, string pground, string pdata)
 {
 	bool success = true;
 
@@ -46,15 +39,15 @@ bool Pokemon::loadFromFile(string pbody, string pground, string pdata, string tn
 		success = false;
 	}
 
-	if (!name.loadFromRenderedText(tname, textColor))
+	if (!name.loadFromRenderedText(sName))
 	{
-		cout<<"Failed to render name texture!"<<endl;
+		cout<<"Failed to load name texture from text!"<<endl;
 		success = false;
 	}
 
-	if (!tLv.loadFromRenderedText(sLv, textColor))
+	if (!tLv.loadFromRenderedText(sLv))
 	{
-		cout<<"Failed to render level texture!"<<endl;
+		cout<<"Failed to load level texture from text!"<<endl;
 		success = false;
 	}
 
@@ -67,22 +60,23 @@ bool Pokemon::loadFromFile(string pbody, string pground, string pdata, string tn
 void Pokemon::render(int x, int y)
 {
 	//Pokemon render
-	ground.render(x, (int)(y + height - ground.getHeight()/groundMultiplier));
+	ground.render(x, (int)(y + height - ground.getHeight()/groundMultiplyer));
 	body.render(x + width/2 - body.getWidth()/2, y);
 
 	//Data render
-	Health.y = y + 10;
-	data.render(Health.x, Health.y);
+	posData.y = y + 10;
+	data.render(posData.x, posData.y);
 
 	//Health render
-	float relativeHP = (float)currentHP / maxHP;
-	SDL_Rect hp = {Health.x + HP.x, Health.y + HP.y, (int)(144 * relativeHP), 9};
+	float relativeHP = (float) currentHP / maxHP;
+	SDL_Rect hp = {posData.x + HP.x, posData.y + HP.y, (int)(144 * relativeHP), 9};
 	SDL_SetRenderDrawColor(gRenderer, 0x00, 0xFF, 0x00, 0xFF);
 	SDL_RenderFillRect(gRenderer, &hp);
+	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
 	//Text render
-	name.render(Health.x + Name.x, Health.y + Name.y);
-	tLv.render(Health.x + pLv.x, Health.y + pLv.y);
+	name.render(posData.x + pName.x, posData.y + pName.y);
+	tLv.render(posData.x + pLv.x, posData.y + pLv.y);
 }
 
 void Pokemon::free()

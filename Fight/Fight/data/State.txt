@@ -1,0 +1,2 @@
+Dodrio	50	DrillPeck	JumpKick
+Golem	50

@@ -1,13 +1,17 @@
+#pragma once
+
+#include <iostream>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
-#include <iostream>
-#include <string>
-#include <stdlib.h>
+#include "Constants.h"
 
 using namespace std;
 
-#pragma once
+extern SDL_Renderer* gRenderer;
+extern TTF_Font* gFont;
+extern SDL_Color textColor;
+
 class Texture
 {
 	//ATRIBUTES
@@ -16,14 +20,14 @@ class Texture
 	int height;
 public:
 	//CONSTRUCTION - DESTRUCTION
-	Texture();
-	~Texture();
+	Texture(void);
+	~Texture(void);
 
 	//GRAPHIC METHODS
 	bool loadFromFile(string path);
-	bool loadFromRenderedText(string textureText, SDL_Color textColor);
+	bool loadFromRenderedText(string textureText);
 	void free();
-	void render(int x,int y);
+	void render(int x, int y);
 
 	//INTERFACE INLINE METHODS
 	int getWidth(){return width;}

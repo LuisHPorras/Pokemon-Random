@@ -1,13 +1,7 @@
 #include "Texture.h"
 
-using namespace std;
-
-extern SDL_Window* gWindow;
-extern SDL_Renderer* gRenderer;
-extern TTF_Font* gFont;
-
 //CONSTRUCTION - DESTRUCTION
-Texture::Texture()
+Texture::Texture(void)
 {
 	mTexture = NULL;
 	width = 0;
@@ -15,9 +9,8 @@ Texture::Texture()
 }
 
 
-Texture::~Texture()
+Texture::~Texture(void)
 {
-	free();
 }
 
 //GRAPHIC METHODS
@@ -28,7 +21,7 @@ bool Texture::loadFromFile(string path)
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if (loadedSurface == NULL)
 	{
-		cout<<"Unable to load image "<<path.c_str()<<"! SDL_Image Error: "<<IMG_GetError()<<endl;
+		cout<<"Unable to load image "<<path.c_str()<<"! SDL_image Error: "<<IMG_GetError()<<endl;
 		system("pause");
 	}
 	else
@@ -37,7 +30,7 @@ bool Texture::loadFromFile(string path)
 		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
 		if (newTexture == NULL)
 		{
-			cout<<"Unable to create texture from "<<path.c_str()<<"! SDL Error: "<<SDL_GetError()<<endl;
+			cout<<"Unable to create texture from "<<path.c_str()<<"! SDL Error:"<<SDL_GetError()<<endl;
 			system("pause");
 		}
 		else
@@ -51,7 +44,7 @@ bool Texture::loadFromFile(string path)
 	return mTexture != NULL;
 }
 
-bool Texture::loadFromRenderedText(string textureText, SDL_Color textColor)
+bool Texture::loadFromRenderedText(string textureText)
 {
 	free();
 	SDL_Surface* textSurface = TTF_RenderText_Solid(gFont, textureText.c_str(), textColor);
@@ -66,7 +59,7 @@ bool Texture::loadFromRenderedText(string textureText, SDL_Color textColor)
 		if (mTexture == NULL)
 		{
 			cout<<"Unable to create texture from rendered text! SDL Error: "<<SDL_GetError()<<endl;
-			system ("pause");
+			system("pause");
 		}
 		else
 		{
