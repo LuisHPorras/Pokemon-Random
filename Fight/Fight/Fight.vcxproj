@@ -16,7 +16,6 @@
     <ClCompile Include="src\Constants.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Fight.cpp" />
-    <ClCompile Include="src\ListOf.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Pokemon.cpp" />
     <ClCompile Include="src\Texture.cpp" />
@@ -28,7 +27,6 @@
     <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Fight.h" />
     <ClInclude Include="src\ListOf.h" />
-    <ClInclude Include="src\ListOf.hpp" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Pokemon.h" />
     <ClInclude Include="src\Texture.h" />

@@ -1,0 +1,9 @@
+﻿Compilación iniciada a las 10/06/2016 10:31:05.
+     1>Proyecto "C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Adventure\Adventure\Adventure.vcxproj" en el nodo 2 (Build destinos).
+       El archivo del proyecto contiene ToolsVersion="14.0". Este conjunto de herramientas falta o es desconocido, en cuyo caso es posible que pueda resolver este problema instalando la versión apropiada de MSBuild. También es posible que, por motivos de directiva, se haya exigido a la compilación que use un valor determinado para ToolsVersion. Se tratará el proyecto como si contuviera ToolsVersion="4.0". Para obtener más información, vea http://go.microsoft.com/fwlink/?LinkId=291333.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.Cpp.Platform.targets(44,5): error MSB8020: The builds tools for v140 (Platform Toolset = 'v140') cannot be found. To build using the v140 build tools, either click the Project menu or right-click the solution, and then select "Update VC++ Projects...". Install v140 to build using the v140 build tools.
+     1>Compilación del proyecto terminada "C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Adventure\Adventure\Adventure.vcxproj" (Build destinos) -- ERROR.
+
+ERROR al compilar.
+
+Tiempo transcurrido 00:00:00.14

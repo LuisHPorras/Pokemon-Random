@@ -3,24 +3,17 @@
 //CONSTRUCTION - DESTRUCTION
 Fight::Fight(void)
 {
-	Vector2D* aux = new Vector2D(100, 40);
-	option[0] = *aux;
-	delete aux;
-	aux = new Vector2D(475, 40);
-	option[1] = *aux;
-	delete aux;
-	aux = new Vector2D(100, 130);
-	option[2] = *aux;
-	delete aux;
-	aux = new Vector2D(475, 130);
-	option[3] = *aux;
-	delete aux;
-	cursor = option[0];
+	int posOpt[8] = {100, 40, 475, 40, 100, 130, 475, 130};
+	for (int i=0; i < 4; i++)
+		option[i] = new Vector2D(posOpt[i*2], posOpt[i*2+1]);
+	cursor = *option[0];
 }
 
 
 Fight::~Fight(void)
 {
+	for (int i=0; i < 4; i++)
+		delete option[i];
 }
 
 //START-STOP METHODS

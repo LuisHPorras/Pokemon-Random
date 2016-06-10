@@ -23,8 +23,9 @@ class Fight
 
 	ListOf<Pokemon> pokemon;
 
+	//STATE COORDINATION ATRIBUTES
 	Vector2D cursor;
-	Vector2D option[4];
+	Vector2D* option[4];
 	enum States
 	{
 
