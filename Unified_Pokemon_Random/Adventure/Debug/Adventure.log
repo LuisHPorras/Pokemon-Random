@@ -1,0 +1,25 @@
+﻿  Vector2D.cpp
+  Mundo.cpp
+  Main.cpp
+  Generating Code...
+  Compiling...
+  Texture.cpp
+  Pokemon.cpp
+  Player_Trainer.cpp
+  Player.cpp
+  Movable_Trainer.cpp
+  Map.cpp
+  Fight.cpp
+  Enemy.cpp
+  Animation.cpp
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(112): warning C4018: '>': signed/unsigned mismatch
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(126): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(135): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(147): warning C4018: '>': signed/unsigned mismatch
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(157): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(167): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(174): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(183): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\pc\desktop\pokemon-random-development\pokemon_random\adventure\animation.cpp(193): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  Adventure.vcxproj -> C:\Users\pc\Desktop\Pokemon-Random-development\Pokemon_Random\Debug\Adventure.exe

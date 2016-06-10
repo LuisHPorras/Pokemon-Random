@@ -7,6 +7,7 @@
 #include "ListOf.h"
 #include "Attack.h"
 
+
 extern SDL_Renderer* gRenderer;
 
 class Pokemon

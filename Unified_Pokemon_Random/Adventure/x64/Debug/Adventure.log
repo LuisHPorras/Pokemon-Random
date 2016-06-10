@@ -1,0 +1,19 @@
+﻿  Vector2D.cpp
+  Timer.cpp
+c:\users\pc\desktop\pokemon-random-development\adventure\adventure\timer.h(4): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Texture.cpp
+c:\users\pc\desktop\pokemon-random-development\adventure\adventure\mundo.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Player_Trainer.cpp
+c:\users\pc\desktop\pokemon-random-development\adventure\adventure\player_trainer.h(3): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Mundo.cpp
+c:\users\pc\desktop\pokemon-random-development\adventure\adventure\mundo.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Movable_Trainer.cpp
+c:\users\pc\desktop\pokemon-random-development\adventure\adventure\movable_trainer.h(3): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Map.cpp
+c:\users\pc\desktop\pokemon-random-development\adventure\adventure\mundo.h(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Main.cpp
+c:\users\pc\desktop\pokemon-random-development\adventure\adventure\main.cpp(2): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Constants.cpp
+  Animation.cpp
+c:\users\pc\desktop\pokemon-random-development\adventure\adventure\animation.h(4): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  Generating Code...
