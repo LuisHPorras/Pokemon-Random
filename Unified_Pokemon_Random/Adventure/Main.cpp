@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
 
@@ -20,6 +21,7 @@ World world;
 
 int main(int argc, char* args[])
 {
+
 	//Start up SDL and create window
 	if (!world.init())
 	{

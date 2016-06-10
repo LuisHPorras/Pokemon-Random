@@ -87,7 +87,7 @@ void World::keyEvent(SDL_Event& e, bool& quit)
 		state = Constants::FIGHT;
 		break;
 		
-	deafault:
+	default:
 		break;
 	}
 
