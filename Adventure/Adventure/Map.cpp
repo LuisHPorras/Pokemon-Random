@@ -6,7 +6,7 @@ Map::~Map()
 void Map::printMap()
 {
 
-	background.loadSprite("map.png");
+	background.loadSprite("sprites/map.png");
 
 	int count = 0;
 	for (int i = 0; i < spriteHeigth; i++)
