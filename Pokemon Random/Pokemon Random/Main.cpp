@@ -6,6 +6,9 @@
 #include "Textura.h"
 #include "Animacion.h"
 #include "Jugador.h"
+#include "Texture.h"
+#include "Animation.h"
+#include "Player_Trainer.h"
 
 
 //using namespace std;
