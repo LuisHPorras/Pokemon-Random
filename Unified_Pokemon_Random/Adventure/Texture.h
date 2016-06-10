@@ -2,12 +2,16 @@
 
 #include <iostream>
 #include <string>
-#include "Mundo.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
 
 using namespace std;
 
 extern SDL_Window* gWindow;
 extern SDL_Renderer* gRenderer;
+extern TTF_Font* gFont;
+extern SDL_Color textColor;
 
 class Texture
 {
@@ -34,6 +38,6 @@ private:
 	int width;
 	int height;
 
-friend class Mundo;
+//friend class Adventure;
 };
 

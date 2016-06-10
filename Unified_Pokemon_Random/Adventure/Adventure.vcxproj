@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Adventure.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Attack.h" />
     <ClInclude Include="Constants.h" />
@@ -156,7 +157,6 @@
     <ClInclude Include="Fight.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Movable_Trainer.h" />
-    <ClInclude Include="Mundo.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Player_Trainer.h" />
     <ClInclude Include="Pokemon.h" />
@@ -166,6 +166,7 @@
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Adventure.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Attack.cpp" />
     <ClCompile Include="Constants.cpp" />
@@ -174,7 +175,6 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Movable_Trainer.cpp" />
-    <ClCompile Include="Mundo.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Player_Trainer.cpp" />
     <ClCompile Include="Pokemon.cpp" />

@@ -5,36 +5,6 @@ Player_Trainer::Player_Trainer(void)
 	position.x = 0;
 	position.y = 0;
 	orientation = 0;
-	
-	int nclips = 3;
-	int xvec[] = { 0,64,128 };
-	int yvec[] = { 0,0,0 };
-	int wvec[] = { 64,64,64 };
-	int hvec[] = { 64,64,64 };
-	int sequence[] = { 1,0,2 };
-	int dim = 3;
-	int period = 50;
-	int timeInterval[] = {period,period*2,period*2};
-
-	animation[Constants::KEY_PRESS_DIRECTION_DOWN].loadSprite("player/player_down_anim2.png");
-	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setClips(nclips, xvec, yvec, wvec, hvec);
-	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setSequence(dim, sequence, timeInterval);
-	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setPosition(position);
-
-	animation[Constants::KEY_PRESS_DIRECTION_UP].loadSprite("player/player_up_anim2.png");
-	animation[Constants::KEY_PRESS_DIRECTION_UP].setClips(nclips, xvec, yvec, wvec, hvec);
-	animation[Constants::KEY_PRESS_DIRECTION_UP].setSequence(dim, sequence, timeInterval);
-	animation[Constants::KEY_PRESS_DIRECTION_UP].setPosition(position);
-
-	animation[Constants::KEY_PRESS_DIRECTION_LEFT].loadSprite("player/player_left_anim2.png");
-	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setClips(nclips, xvec, yvec, wvec, hvec);
-	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setSequence(dim, sequence, timeInterval);
-	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setPosition(position);
-
-	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].loadSprite("player/player_right_anim2.png");
-	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setClips(nclips, xvec, yvec, wvec, hvec);
-	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setSequence(dim, sequence, timeInterval);
-	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setPosition(position);
 }
 
 
@@ -79,4 +49,31 @@ void Player_Trainer::animate()
 		animation[orientation].hold();
 	else
 		animation[orientation].animate();
+}
+
+bool Player_Trainer::loadFromFile()
+{
+	if (!animation[Constants::KEY_PRESS_DIRECTION_DOWN].loadSprite("player/player_down_anim2.png"))
+		return false;
+	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setClips(nclips, xvec, yvec, wvec, hvec);
+	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setSequence(dim, sequence, timeInterval);
+	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setPosition(position);
+
+	if (!animation[Constants::KEY_PRESS_DIRECTION_UP].loadSprite("player/player_up_anim2.png"))
+	return false;
+	animation[Constants::KEY_PRESS_DIRECTION_UP].setClips(nclips, xvec, yvec, wvec, hvec);
+	animation[Constants::KEY_PRESS_DIRECTION_UP].setSequence(dim, sequence, timeInterval);
+	animation[Constants::KEY_PRESS_DIRECTION_UP].setPosition(position);
+
+	if (!animation[Constants::KEY_PRESS_DIRECTION_LEFT].loadSprite("player/player_left_anim2.png"))
+		return false;
+	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setClips(nclips, xvec, yvec, wvec, hvec);
+	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setSequence(dim, sequence, timeInterval);
+	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setPosition(position);
+
+	if (!animation[Constants::KEY_PRESS_DIRECTION_RIGHT].loadSprite("player/player_right_anim2.png"))
+		return false;
+	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setClips(nclips, xvec, yvec, wvec, hvec);
+	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setSequence(dim, sequence, timeInterval);
+	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setPosition(position);
 }
