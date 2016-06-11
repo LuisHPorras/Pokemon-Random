@@ -28,10 +28,6 @@ class Fight
 
 	}state;
 public:
-	//SCREEN DYMENSIONS
-	static const int SCREEN_WIDTH = 800;
-	static const int SCREEN_HEIGHT = 600;
-
 	//CONSTRUCTION - DESTRUCTION
 	Fight(void);
 	~Fight(void);

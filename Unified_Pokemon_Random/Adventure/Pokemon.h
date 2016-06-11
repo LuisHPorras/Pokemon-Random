@@ -47,11 +47,9 @@ protected:
 	ListOf<Attack> attacks;
 
 	static Text_Manager pokedex;
-public:
-
 
 	int dexNum;
-
+public:	
 	//CONSTRUCTION - DESTRUCTION
 	Pokemon(int inDexNum, int xHP = 0, int yHP = 0, int xName = 0, int yName = 0, int xLv = 0, int yLv = 0);
 	~Pokemon(void);

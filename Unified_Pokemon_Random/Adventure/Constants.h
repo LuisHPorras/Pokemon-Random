@@ -18,8 +18,13 @@ public:
 	static const int PLAYER_WIDTH = 64;
 	static const int PLAYER_HEIGHT = 64;
 
+	//DYMENSIONS OF FILES MATRIX
 	static const int NUM_PKMN_DEX = 2;
 	static const int NUM_STATS_DEX = 6;
+	static const int NUM_ATTK = 2;
+	static const int NUM_STATS_ATTK = 3;
+	static const int NUM_PKMN_STATE = 2;
+	static const int NUM_STATS_STATE = 6;
 
 	enum State
 	{

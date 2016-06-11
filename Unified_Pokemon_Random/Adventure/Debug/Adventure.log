@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Animation.cpp
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\animation.cpp(114): warning C4018: '>': signed/unsigned mismatch
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\animation.cpp(128): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -10,3 +11,7 @@ c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\animation.cpp(184): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\animation.cpp(194): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Adventure.vcxproj -> C:\Users\Luis Herce Porras\Desktop\LHP\Proyectos\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
+=======
+﻿  Fight.cpp
+  Adventure.vcxproj -> C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
+>>>>>>> origin/development

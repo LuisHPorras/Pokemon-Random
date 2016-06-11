@@ -20,7 +20,7 @@ bool Text_Manager::find(const string w)
 	if (file.is_open())
 		while (getline(file, line))
 		{
-			if (!w.compare(line)) return true;//Si la palabra coincide devuelve verdadero		
+			if (!w.compare(line)) return true;		
 		}
 
 	else cout << "Error al abrir fichero\n";
