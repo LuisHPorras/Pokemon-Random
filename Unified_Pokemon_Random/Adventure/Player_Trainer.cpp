@@ -23,16 +23,16 @@ void Player_Trainer::move(int inOrientation)
 		{
 			//El eje y está invertido
 		case Constants::KEY_PRESS_DIRECTION_DOWN:
-			position.y += Constants::PLAYER_HEIGTH/2;
+			position.y += Constants::PLAYER_HEIGHT;
 			break;
 		case Constants::KEY_PRESS_DIRECTION_UP:
-			position.y -= Constants::PLAYER_HEIGTH/2;
+			position.y -= Constants::PLAYER_HEIGHT;
 			break;
 		case Constants::KEY_PRESS_DIRECTION_LEFT:
-			position.x -= Constants::PLAYER_WIDTH/2;
+			position.x -= Constants::PLAYER_WIDTH;
 			break;
 		case Constants::KEY_PRESS_DIRECTION_RIGHT:
-			position.x += Constants::PLAYER_WIDTH/2;
+			position.x += Constants::PLAYER_WIDTH;
 			break;
 		default:
 			break;
@@ -46,6 +46,15 @@ void Player_Trainer::move(int inOrientation)
 void Player_Trainer::animate()
 {
 	if(animation[orientation].isEnded())
+		animation[orientation].hold();
+	else
+		animation[orientation].animate();
+}
+
+void Player_Trainer::animate(Vector2D pos)
+{
+	animation[orientation].setPosition(pos);
+	if (animation[orientation].isEnded())
 		animation[orientation].hold();
 	else
 		animation[orientation].animate();

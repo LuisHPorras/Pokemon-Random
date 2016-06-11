@@ -3,7 +3,7 @@
 Map::~Map()
 {
 }
-void Map::printMap()
+void Map::printMap(int posx, int posy, SDL_Rect* rect)
 {
 
 	background.loadSprite("sprites/map.png");
@@ -14,7 +14,7 @@ void Map::printMap()
 		for (int j = 0; j < spriteWidth; j++)
 		{
 			x[count] = 64 * j;
-			y[count] = 1088-(64 *(i+1));
+			y[count] = 64 *i;
 			w[count] = 64;
 			h[count] = 64;
 
@@ -36,10 +36,10 @@ void Map::printLayer(int *layer)
 	background.setSequenceB(width*heigth, layer);
 
 	int count = 0;
-	for (int i = 0; i < width; i++)
-		for (int j = 0; j < heigth; j++)
+	for (int i = 0; i < heigth; i++)
+		for (int j = 0; j < width; j++)
 		{
-			background.animateB(64 * i, 64 * j, count);
+			background.animateB(64 * j, 64 * i, count);
 			count++;
 		}
 	

@@ -23,7 +23,8 @@ public:
 	Player_Trainer player;
 	Map route_0;
 
-	//int previousKey;
+	SDL_Rect camera = { 0, 0, Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT };
+
 
 };
 

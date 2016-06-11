@@ -131,11 +131,10 @@ void Animation::animate()
 
 void Animation::animateB(int inposx, int inposy, int frame)
 {
-	currentFrame=frame;
+	currentFrame = frame;
 	position.x = inposx;
 	position.y = inposy;
 	renderB(position.x, position.y);
-
 }
 
 //Animates at a given position of the actual frame, dont change it until true
@@ -182,14 +181,14 @@ void Animation::render(float posx, float posy)
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
 	currentClip = &clips[sequence[currentFrame]];
-	texture.render(posx + ((Constants::SCREEN_WIDTH - currentClip->w) / 2), posy + ((Constants::SCREEN_HEIGHT - currentClip->h) / 2), currentClip);
+	texture.render(posx + (currentClip->w / 2), posy + (currentClip->h / 2), currentClip, Constants::PLAYER_WIDTH*1.5, Constants::PLAYER_HEIGHT*1.5);
 }
 
 void Animation::renderB(float posx, float posy)
 {
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
-	currentClip = &clips[sequence[currentFrame]];
+	currentClip = &clips[sequence[currentFrame]-1];
 	if (sequence[currentFrame] == 0)
 		return;
 	texture.render(posx, posy, currentClip);

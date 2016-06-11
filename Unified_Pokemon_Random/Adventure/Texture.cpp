@@ -88,6 +88,12 @@ bool Texture::loadFromRenderedText(string textureText)
 	return sdlTexture != NULL;
 }
 
+void Texture::render(int x, int y, SDL_Rect* clip, int w, int h)
+{
+	SDL_Rect renderQuad = { x, y, w, h };
+	SDL_RenderCopy(gRenderer, sdlTexture, clip, &renderQuad);
+}
+
 void Texture::render(int x, int y, SDL_Rect* clip)
 {
 	SDL_Rect renderQuad = { x, y, (clip->w), (clip->h) };

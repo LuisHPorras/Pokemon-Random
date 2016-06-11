@@ -5,6 +5,10 @@ public:
 	Constants();
 	~Constants();
 
+	//The dimensions of the level
+	static const int LEVEL_WIDTH = 1280;
+	static const int LEVEL_HEIGHT = 960;
+
 	//Screen dimension constants
 	static const int SCREEN_WIDTH = 800;
 	static const int SCREEN_HEIGHT = 600;
@@ -12,7 +16,7 @@ public:
 	static const int DIM = 400;
 
 	static const int PLAYER_WIDTH = 64;
-	static const int PLAYER_HEIGTH = 64;
+	static const int PLAYER_HEIGHT = 64;
 
 	static const int NUM_PKMN_DEX = 2;
 	static const int NUM_STATS_DEX = 6;

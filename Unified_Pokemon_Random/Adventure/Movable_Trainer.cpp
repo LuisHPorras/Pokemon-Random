@@ -10,7 +10,7 @@ Movable_Trainer::Movable_Trainer(int posx, int posy)
 	int xvec[] = { 0 * Constants::PLAYER_WIDTH,1 * Constants::PLAYER_WIDTH,2 * Constants::PLAYER_WIDTH };
 	int yvec[] = { 0,0,0 };
 	int wvec[] = { Constants::PLAYER_WIDTH,Constants::PLAYER_WIDTH,Constants::PLAYER_WIDTH };
-	int hvec[] = { Constants::PLAYER_HEIGTH,Constants::PLAYER_HEIGTH,Constants::PLAYER_HEIGTH };
+	int hvec[] = { Constants::PLAYER_HEIGHT,Constants::PLAYER_HEIGHT,Constants::PLAYER_HEIGHT };
 	int sequence[] = { 1,0,2 };
 	int dim = 3;
 	int period = 50;
@@ -93,10 +93,10 @@ void Movable_Trainer::move(int inOrientation)
 		{
 			//El eje y está invertido
 		case Constants::ORIENTATION_DOWN:
-			position.y += Constants::PLAYER_HEIGTH / 4;
+			position.y += Constants::PLAYER_HEIGHT / 4;
 			break;
 		case Constants::ORIENTATION_UP:
-			position.y -= Constants::PLAYER_HEIGTH / 4;
+			position.y -= Constants::PLAYER_HEIGHT / 4;
 			break;
 		case Constants::ORIENTATION_LEFT:
 			position.x -= Constants::PLAYER_WIDTH / 4;

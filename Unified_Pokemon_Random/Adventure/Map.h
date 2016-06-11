@@ -18,15 +18,15 @@ public:
 	Map() : heigth(20), width(20) {}
 	~Map();
 
-	void printMap();
+	void printMap(int posx, int posy, SDL_Rect* rect);
 	void printLayer(int *layer);
 
 private:
 
-	int x[Constants::DIM];
-	int y[Constants::DIM];
-	int w[Constants::DIM];
-	int h[Constants::DIM];
+	int x[68];
+	int y[68];
+	int w[68];
+	int h[68];
 
 	int heigth = 20;
 	int width = 20;

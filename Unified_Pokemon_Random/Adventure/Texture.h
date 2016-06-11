@@ -29,6 +29,7 @@ public:
 	bool loadFromFile(string path);
 	bool loadFromRenderedText(string textureText);
 	void render(int x, int y, SDL_Rect* clip);
+	void render(int x, int y, SDL_Rect* clip, int w, int h);
 	void render(int x, int y);
 	void free();
 
