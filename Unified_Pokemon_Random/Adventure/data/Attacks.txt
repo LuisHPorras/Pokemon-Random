@@ -1,2 +1,3 @@
-DrillPeck	Flying	80
-JumpKick	Fighting	70
+Name	Type	Power
+DrillPeck	0	80
+JumpKick	1	70

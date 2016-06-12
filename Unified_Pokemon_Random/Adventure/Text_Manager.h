@@ -11,16 +11,18 @@ class Text_Manager
 {
 	ifstream file;
 	const string name;
-	string data[100][100];
+	string data[10][10];
 
+	const int maxLn;
+	const int maxCol;
 public:
-	Text_Manager(const string inName);
+	Text_Manager(const string inName, int maxLn, int maxCol);
 	~Text_Manager();
 
 	bool find(const string w);
 	void loadData(int Ln, int Col);
 	string getData(int Ln, int Col) { return data[Ln][Col]; }
-	string* getLine(int Ln) { return data[Ln]; }
+	int* getLine(int Ln);
 	int getDataInt(int Ln, int Col) { return stoi(data[Ln][Col]); }
 	Constants::Types getType(int Ln, int Col);
 };

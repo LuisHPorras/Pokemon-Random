@@ -13,6 +13,8 @@ public:
 	void operator+=(T* t);
 	void erase();
 	T operator[](int index);
+
+	int getNumber() { return number; }
 };
 
 template<class T> ListOf<T>::ListOf(void)

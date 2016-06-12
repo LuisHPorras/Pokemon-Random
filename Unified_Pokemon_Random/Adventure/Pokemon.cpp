@@ -1,11 +1,10 @@
 #include "Pokemon.h"
 
 //CONSTRUCTION - DESTRUCTION
-Pokemon::Pokemon(int inDexNum, int xHP, int yHP, int xName, int yName, int xLv, int yLv):
+Pokemon::Pokemon(int xHP, int yHP, int xName, int yName, int xLv, int yLv):
 	HP(xHP, yHP),
 	pName(xName, yName),
-	pLv(xLv, yLv),
-	dexNum(inDexNum)
+	pLv(xLv, yLv)
 {
 	width = 0;
 	height = 0;
@@ -15,29 +14,18 @@ Pokemon::Pokemon(int inDexNum, int xHP, int yHP, int xName, int yName, int xLv, 
 
 Pokemon::~Pokemon(void)
 {
+	attacks.erase();
 }
 
 //MEDIA METHODS
-bool Pokemon::loadFromFile(string pground, string pdata)
+bool Pokemon::loadFromFile()
 {
 	bool success = true;
-	loadStats(dexNum);
+	loadStats();
 
 	if (!body.loadFromFile(pathBody))
 	{
 		cout<<"Failed to load body texture image!"<<endl;
-		success = false;
-	}
-
-	if (!ground.loadFromFile(pground))
-	{
-		cout<<"Failed to load ground texture image!"<<endl;
-		success = false;
-	}
-
-	if (!data.loadFromFile(pdata))
-	{
-		cout<<"Failed to load data texture image!"<<endl;
 		success = false;
 	}
 
@@ -90,15 +78,29 @@ void Pokemon::free()
 	tLv.free();
 }
 
-void Pokemon::loadStats(int index)
+void Pokemon::loadStats()
 {
-	//pokedex.getLine(dexNum);
-	sName = pokedex.getData(index, 0);
-	type = pokedex.getType(index, 1);
-	maxHP = pokedex.getDataInt(index, 2);
-	attack = pokedex.getDataInt(index, 3);
-	defence = pokedex.getDataInt(index, 4);
-	pathBody = pokedex.getData(index, 5);
+	sName = pokedex.getData(dexNum, 0);
+	type = pokedex.getType(dexNum, 1);
+	maxHP = pokedex.getDataInt(dexNum, 2);
+	attack = pokedex.getDataInt(dexNum, 3);
+	defence = pokedex.getDataInt(dexNum, 4);
+	pathBody = pokedex.getData(dexNum, 5);
+
+	for (int i = 0; i < 4; i++)
+	{
+		attacks += new Attack(attackId[i]);
+		attacks[attacks.getNumber() - 1].loadStats();
+	}
 }
 
-Text_Manager Pokemon::pokedex("data/Pokedex.txt");
+void Pokemon::setData(int d[])
+{
+	dexNum = d[1];
+	Lv = d[2];
+	currentHP = d[3];
+	for (int i = 0; i < 4; i++)
+		attackId[i] = d[i + 4];
+}
+
+Text_Manager Pokemon::pokedex("data/Pokedex.txt", Constants::NUM_PKMN_DEX, Constants::NUM_STATS_DEX);
