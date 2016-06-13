@@ -44,6 +44,7 @@ protected:
 	int defence;
 	Constants::Types type;
 
+	int attackId[4];
 	ListOf<Attack> attacks;
 
 	static Text_Manager pokedex;
@@ -51,14 +52,15 @@ protected:
 	int dexNum;
 public:	
 	//CONSTRUCTION - DESTRUCTION
-	Pokemon(int inDexNum, int xHP = 0, int yHP = 0, int xName = 0, int yName = 0, int xLv = 0, int yLv = 0);
+	Pokemon(int xHP = 0, int yHP = 0, int xName = 0, int yName = 0, int xLv = 0, int yLv = 0);
 	~Pokemon(void);
 
 	//MEDIA METHODS
-	virtual bool loadFromFile(string pground, string pdata);
+	virtual bool loadFromFile();
 	virtual void render(int x, int y);
 	virtual void free();
-	void loadStats(int index);
+	void loadStats();
+	void setData(int d[]);
 
 	//INTERFACE INLINE METHODS
 	int getWidth(){return width;}

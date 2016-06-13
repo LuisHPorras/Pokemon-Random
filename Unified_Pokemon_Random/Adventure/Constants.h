@@ -23,10 +23,10 @@ public:
 	//DYMENSIONS OF FILES MATRIX
 	static const int NUM_PKMN_DEX = 2;
 	static const int NUM_STATS_DEX = 6;
-	static const int NUM_ATTK = 2;
-	static const int NUM_STATS_ATTK = 3;
+	static const int NUM_ATTKS = 2;
+	static const int NUM_STATS_ATTKS = 3;
 	static const int NUM_PKMN_STATE = 2;
-	static const int NUM_STATS_STATE = 6;
+	static const int NUM_STATS_STATE = 8;
 
 	enum State
 	{

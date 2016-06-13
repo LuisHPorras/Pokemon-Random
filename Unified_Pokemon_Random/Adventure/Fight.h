@@ -10,6 +10,7 @@
 #include "ListOf.h"
 #include "Pokemon.h"
 #include "Player.h"
+#include "Enemy.h"
 
 using namespace std;
 
@@ -19,6 +20,8 @@ class Fight
 	Texture background;
 
 	ListOf<Pokemon> pokemon;
+
+	static Text_Manager info;
 
 	//STATE COORDINATION ATRIBUTES
 	Vector2D cursor;
@@ -36,6 +39,7 @@ public:
 	void close();
 
 	//MEDIA METHODS
+	void loadStats();
 	bool loadMedia();
 	void render();
 

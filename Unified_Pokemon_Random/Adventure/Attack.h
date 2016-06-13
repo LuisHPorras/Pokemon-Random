@@ -2,20 +2,26 @@
 
 #include <iostream>
 #include "Constants.h"
+#include "Text_Manager.h"
 
 using namespace std;
 
 class Attack
 {
+	int id;
 	string name;
 
 	//STATS
 	int power;
 	Constants::Types type;
+
+	static Text_Manager attackList;
 public:
 	//CONSTRUCTION - DESTRUCTION
-	Attack(void);
+	Attack(int inId);
 	~Attack(void);
+
+	void loadStats();
 
 	//INTERFACE INLINE METHODS
 	int getPower(){return power;}

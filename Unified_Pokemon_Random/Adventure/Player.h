@@ -21,11 +21,11 @@ class Player: public Pokemon
 
 public:
 	//CONSTRUCTION - DESTRUCTION
-	Player(int index);
+	Player();
 	~Player(void);
 
 	//GRAPHIC METHODS
-	bool loadFromFile(string pground, string pdata);
+	bool loadFromFile();
 	void render(int x, int y);
 	void free();
 	void updateXData();

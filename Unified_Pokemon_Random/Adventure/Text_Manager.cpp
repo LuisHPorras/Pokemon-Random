@@ -2,9 +2,12 @@
 
 
 
-Text_Manager::Text_Manager(const string inName): name(inName)
+Text_Manager::Text_Manager(const string inName, int inmaxLn, int inmaxCol): 
+	name(inName),
+	maxLn(inmaxLn),
+	maxCol(inmaxCol)
 {
-	loadData(Constants::NUM_PKMN_DEX, Constants::NUM_STATS_DEX);
+	loadData(maxLn, maxCol);
 }
 
 
@@ -55,4 +58,12 @@ Constants::Types Text_Manager::getType(int Ln, int Col)
 		return Constants::FIGHTING;
 	if (type == 2)
 		return Constants::ROCK;
+}
+
+int* Text_Manager::getLine(int Ln)
+{
+	int aux[Constants::NUM_STATS_STATE];
+	for (int i = 0; i < maxCol; i++)
+		aux[i] = stoi(data[Ln][i]);
+	return aux;
 }

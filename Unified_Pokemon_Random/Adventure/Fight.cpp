@@ -7,7 +7,6 @@ Fight::Fight(void)
 	for (int i=0; i < 4; i++)
 		option[i] = new Vector2D(posOpt[i*2], posOpt[i*2+1]);
 	cursor = *option[0];
-	pokemon += new Player(0);
 }
 
 
@@ -15,6 +14,7 @@ Fight::~Fight(void)
 {
 	for (int i=0; i < 4; i++)
 		delete option[i];
+	pokemon.erase();
 }
 
 //START-STOP METHODS
@@ -29,6 +29,7 @@ void Fight::close()
 bool Fight::loadMedia()
 {
 	bool success = true;
+	loadStats();
 
 	//Load textures
 	if (!background.loadFromFile("Texturas/battle_background.png"))
@@ -37,9 +38,10 @@ bool Fight::loadMedia()
 		success = false;
 	}
 
-	if (!pokemon[0].loadFromFile("Texturas/battle_base_wild_player.png", "Texturas/healthbar_player.png"))
+	for (int i = 0; i < pokemon.getNumber(); i++)
+	if (!pokemon[i].loadFromFile())
 	{
-		cout << "Failed to load background texture image!" << endl;
+		cout << "Failed to load pokemon texture image!" << endl;
 		success = false;
 	}
 
@@ -71,3 +73,17 @@ void Fight::events(SDL_Event &e, bool &quit)
 void Fight::coordinateStates(SDL_Event &e)
 {
 }
+
+void Fight::loadStats()
+{
+	for (int i = 0; i < Constants::NUM_PKMN_STATE; i++)
+	{
+		if (info.getDataInt(i, 0) == 0)
+			pokemon += new Player;
+		if (info.getDataInt(i, 0) == 1)
+			pokemon += new Enemy;
+		pokemon[pokemon.getNumber() - 1].setData(info.getLine(i));
+	}
+}
+
+Text_Manager Fight::info("data/State.txt", Constants::NUM_PKMN_STATE, Constants::NUM_STATS_STATE);

@@ -1,9 +1,9 @@
 #include "Player.h"
 
 //CONSTRUCTION - DESTRUCTION
-Player::Player(int index):
+Player::Player():
 	//HP, Name and Level positions
-	Pokemon(index, 216, 75, 60, 33, 312+10, 33),
+	Pokemon(216, 75, 60, 33, 312+10, 33),
 	pcurrentHP(210, 92),
 	pmaxHP(286+10, 92)
 {
@@ -18,10 +18,22 @@ Player::~Player(void)
 }
 
 //GRAPHIC METHODS
-bool Player::loadFromFile(string pground, string pdata)
+bool Player::loadFromFile()
 {
-	bool success = Pokemon::loadFromFile(pground, pdata);
+	bool success = Pokemon::loadFromFile();
 	updateXData();
+
+	if (!ground.loadFromFile("Texturas/battle_base_wild_player.png"))
+	{
+		cout << "Failed to load ground texture image!" << endl;
+		success = false;
+	}
+
+	if (!data.loadFromFile("Texturas/healthbar_player.png"))
+	{
+		cout << "Failed to load data texture image!" << endl;
+		success = false;
+	}
 
 	if (!tmaxHP.loadFromRenderedText(smaxHP))
 	{

@@ -1,6 +1,23 @@
+<<<<<<< HEAD
 ﻿  Movable_Trainer.cpp
   Generating Code...
   Skipping... (no relevant changes detected)
   World.cpp
   Main.cpp
   Adventure.vcxproj -> C:\Users\Luis Herce Porras\Desktop\LHP\Proyectos\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
+=======
+﻿  Attack.cpp
+  Generating Code...
+  Compiling...
+  World.cpp
+  Text_Manager.cpp
+  Pokemon.cpp
+  Player.cpp
+  Main.cpp
+  Fight.cpp
+  Enemy.cpp
+  Generating Code...
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\text_manager.cpp(61): warning C4715: 'Text_Manager::getType': not all control paths return a value
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\text_manager.cpp(68): warning C4172: returning address of local variable or temporary: aux
+  Adventure.vcxproj -> C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
+>>>>>>> origin/development
