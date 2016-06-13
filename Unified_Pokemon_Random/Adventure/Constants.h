@@ -15,8 +15,10 @@ public:
 
 	static const int DIM = 400;
 
-	static const int PLAYER_WIDTH = 64;
-	static const int PLAYER_HEIGHT = 64;
+	static const int PLAYER_WIDTH = 96;
+	static const int PLAYER_HEIGHT = 96;
+
+	static const int TILE_DIM = 64;
 
 	//DYMENSIONS OF FILES MATRIX
 	static const int NUM_PKMN_DEX = 2;
@@ -33,7 +35,7 @@ public:
 		STATE_TOTAL
 	};
 
-	enum Orientations
+	enum Orientation
 	{
 		ORIENTATION_DOWN,
 		ORIENTATION_UP,

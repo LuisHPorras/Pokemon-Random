@@ -1,11 +1,23 @@
 #include "Adventure.h"
 
-Adventure::Adventure()
+Adventure::~Adventure()
 {
 }
 
-Adventure::~Adventure()
+bool Adventure::loadFromFile()
 {
+	for (int i = 0; i < 5; i++)
+	{
+		trainers[i] = new Movable_Trainer(i, i);
+		trainers[i]->loadFromFile();
+		trainers[i]->setTrajectory(4, t);
+	}
+
+	route_0.loadFromFile();
+	if (!player.loadFromFile())
+		return false;
+
+	return true;
 }
 
 void Adventure::events(SDL_Event& e, bool& quit)
@@ -15,58 +27,66 @@ void Adventure::events(SDL_Event& e, bool& quit)
 		quit = true;
 	}
 	else if (e.type == SDL_KEYDOWN)
-	{
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_UP:
 			player.move(Constants::KEY_PRESS_DIRECTION_UP);
 			//trainers[0]->move(KEY_PRESS_PLAYER_UP);
-			//previousKey = Constants::KEY_PRESS_DIRECTION_UP;
 			break;
 
 		case SDLK_DOWN:
 			player.move(Constants::KEY_PRESS_DIRECTION_DOWN);
 			//trainers[0]->move(KEY_PRESS_PLAYER_DOWN);
-			//previousKey = Constants::KEY_PRESS_DIRECTION_DOWN;
 			break;
 
 		case SDLK_LEFT:
 			player.move(Constants::KEY_PRESS_DIRECTION_LEFT);
 			//trainers[0]->move(KEY_PRESS_PLAYER_LEFT);
-			//previousKey = Constants::KEY_PRESS_DIRECTION_LEFT;
 			break;
 
 		case SDLK_RIGHT:
 			player.move(Constants::KEY_PRESS_DIRECTION_RIGHT);
 			//trainers[0]->move(KEY_PRESS_PLAYER_RIGHT);
-			//previousKey = Constants::KEY_PRESS_DIRECTION_RIGHT;
 			break;
 
 		default:
 			break;
 		}
-	}
-
-	camera.x = (player.getPos().x + Constants::PLAYER_WIDTH / 2 ) - Constants::SCREEN_WIDTH / 2;
-	camera.y = (player.getPos().y + Constants::PLAYER_HEIGHT / 2) - Constants::SCREEN_HEIGHT / 2;
+	
+	cameraPos = player.getPos() - (sceneDim/2);
 
 	//Keep the camera in bounds
-	if (camera.x < 0)
+	if (cameraPos.x < 0)
+		cameraPos.x = 0;
+	
+	if (cameraPos.y < 0)
+		cameraPos.y = 0;
+	
+	if (cameraPos.x > route_0.getWidth() - sceneDim.x)
+		cameraPos.x = route_0.getWidth();
+
+	if (cameraPos.y > route_0.getHeight() - sceneDim.y)
+		cameraPos.y = route_0.getHeight();
+
+	player.setRelPos(cameraPos);
+
+	/*for (int i = 0; i < 5; i++)
+		trainers[i]->walk();*/
+	
+}
+
+void Adventure::render()
+{
+	//Render background
+	route_0.printSubMap(cameraPos.x, cameraPos.y, sceneDim.x, sceneDim.y);
+	
+	player.animate();
+	for (int i = 0; i < 5; i++)
 	{
-		camera.x = 0;
+		trainers[i]->walk();
+		trainers[i]->animate();
 	}
-	if (camera.y < 0)
-	{
-		camera.y = 0;
-	}
-	if (camera.x > Constants::LEVEL_WIDTH - camera.w)
-	{
-		camera.x = Constants::LEVEL_WIDTH - camera.w;
-	}
-	if (camera.y > Constants::LEVEL_HEIGHT - camera.h)
-	{
-		camera.y = Constants::LEVEL_HEIGHT - camera.h;
-	}
+	
 }
 
 void Adventure::close()
@@ -74,19 +94,4 @@ void Adventure::close()
 	//Free loaded images
 }
 
-void Adventure::render()
-{
-	//Render background
-	route_0.printMap(0, 0, &camera);
 
-	Vector2D rel_pos(player.getPos().x - camera.x, player.getPos().y - camera.y);
-	player.animate();
-}
-
-bool Adventure::loadFromFile()
-{
-	if (!player.loadFromFile())
-		return false;
-	
-	return true;
-}

@@ -19,6 +19,12 @@ void Vector2D::operator += (Vector2D v2)
 	 y += v2.y;
 }
 
+void Vector2D::operator -= (Vector2D v2)
+{
+	x -= v2.x;
+	y -= v2.y;
+}
+
 Vector2D Vector2D::operator - (Vector2D v2)
 {
 	Vector2D result;
@@ -31,12 +37,15 @@ Vector2D Vector2D::operator - (Vector2D v2)
 
 Vector2D Vector2D::operator / (int n)
 {
-	Vector2D result;
+	if (n)
+	{
+		Vector2D result;
 
-	(int)result.x = x / n;
-	(int)result.y = y / n;
+		(int)result.x = x / n;
+		(int)result.y = y / n;
 
-	return result;
+		return result;
+	}
 }
 
 Vector2D Vector2D::operator * (int n)
@@ -52,6 +61,14 @@ Vector2D Vector2D::operator * (int n)
 bool Vector2D::operator==(Vector2D v)
 {
 	if (x == v.x && y == v.y)
+		return true;
+	else
+		return false;
+}
+
+bool Vector2D::operator!=(Vector2D v)
+{
+	if (x != v.x || y != v.y)
 		return true;
 	else
 		return false;
