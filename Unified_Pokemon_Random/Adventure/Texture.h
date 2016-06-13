@@ -28,17 +28,15 @@ public:
 	
 	bool loadFromFile(string path);
 	bool loadFromRenderedText(string textureText);
+
 	void render(int x, int y, SDL_Rect* clip);
-	void render(int x, int y, SDL_Rect* clip, int w, int h);
-	void render(int x, int y);
+	virtual void render(int x, int y);
+
 	void free();
 
-
-private:
+protected:
 	SDL_Texture* sdlTexture;
 	int width;
 	int height;
-
-//friend class Adventure;
 };
 

@@ -7,25 +7,26 @@
 #include "Texture.h"
 #include "Map.h"
 #include "Player_Trainer.h"
+#include "Movable_Trainer.h"
 
 class Adventure
 {
 public:
-	Adventure();
+	Adventure(): route_0(20, 20), sceneDim(13,11) {}
 	~Adventure();
 
+	bool loadFromFile();
 	void events(SDL_Event& e, bool& quit);
 	void render();
 	void close();
-	bool loadFromFile();
-
-	//Movable_Trainer *trainers[5];
-	Player_Trainer player;
+	
+//private:
+	Orientation t[4] = { DOWN,UP,DOWN,UP };
+	Vector2D cameraPos;
+	Vector2D sceneDim;
 	Map route_0;
-
-	SDL_Rect camera = { 0, 0, Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT };
-
-
+	Player_Trainer player;
+	Movable_Trainer *trainers[5];
 };
 
 

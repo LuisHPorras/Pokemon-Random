@@ -1,25 +1,24 @@
 #pragma once
 
-#include <SDL.h>
-#include "Constants.h"
-#include "Texture.h"
-#include "Animation.h"
-#include "Vector2D.h"
+#include "Movable_Thing.h"
 
-class Movable_Trainer
+class Movable_Trainer: public Movable_Thing
 {
 public:
-	Movable_Trainer(int posx, int posy);
+	Movable_Trainer();
+	Movable_Trainer(Vector2D pos) : trajIndex(0), trajDim(0) { position = pos; }
+	Movable_Trainer(int posx, int posy) : trajIndex(0), trajDim(0) { position.x = posx; position.y = posy;}
 	~Movable_Trainer();
 
-	void move(int inOrientation);
-	void animate();
+	void setSprite();
+	void setTrajectory(int dim, Orientation *t);
+	void walk();
 
 private:
-	Vector2D position;
-	Vector2D prevPos;
-	int orientation;
-	Animation animation[Constants::ORIENTATION_TOTAL];
+	Orientation *trajectory;
+	int trajDim;
+	int trajIndex;
+
 };
 
 

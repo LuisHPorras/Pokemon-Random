@@ -11,6 +11,7 @@ public:
 	Player_Trainer(void);
 	~Player_Trainer(void);
 
+	void setRelPos(Vector2D pos);
 	void move(int inOrientation);
 	void animate();
 	void animate(Vector2D pos);
@@ -23,7 +24,8 @@ private:
 	int orientation;
 	Animation animation[Constants::KEY_PRESS_DIRECTION_TOTAL];
 
-	int nclips = 3;
+	int nclipsX = 3;
+	int nclipsY = 1;
 	int xvec[3] = { 0,64,128 };
 	int yvec[3] = { 0,0,0 };
 	int wvec[3] = { 64,64,64 };

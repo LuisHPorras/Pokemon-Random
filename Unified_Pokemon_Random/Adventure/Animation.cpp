@@ -1,9 +1,9 @@
 #include "Animation.h"
 
-
 Animation::Animation(void)
 {
 	ended = true;
+	startBit = false;
 }
 
 Animation::~Animation(void)
@@ -12,58 +12,18 @@ Animation::~Animation(void)
 	delete timeInterval;
 }
 
-//Load sprite image from the given path
-bool Animation::loadSprite(std::string path)
-{
-	if (!texture.loadFromFile(path.c_str()))
-	{
-		cout << "Failed to load animation texture!\n" << endl;
-		system("PAUSE");
-		return false;
-	}
-	return true;
-}
-
-//Set the rectangles in the sprite that are going to be the clips of the animation. 
-//Parameters: number of clips, points (vector of x's and vector of y's) lower-left 
-//corner of the rectangle, dimensions (vector of width's, vector of heigth's)
-void Animation::setClips(int inFrames, int *xvec, int *yvec, int *wvec, int *hvec)
-{
-	if (inFrames > 0)
-	{
-		frames = inFrames;
-		clips = new SDL_Rect[frames];
-
-		for (int i = 0; i < frames; i++)
-		{
-			(clips + i)->x = xvec[i];
-			(clips + i)->y = yvec[i];
-			(clips + i)->w = wvec[i];
-			(clips + i)->h = hvec[i];
-		}
-	}
-}
-
 //Set the order in wich the clips are shown and the time interval between them
 //Parameters: length of the animation (number of frames), number of clip (the 
 //array is the order of the frames), time of each frame
 void Animation::setSequence(int dim, int *inSequence, int *inTimeInterval)
 {
+	frames = dim;
 	sequence = new int [dim];
 	timeInterval = new int [dim];
 	for(int i = 0; i<dim; i++)
 	{
 		sequence[i] = inSequence[i];
 		timeInterval[i] = inTimeInterval[i];
-	}
-}
-
-void Animation::setSequenceB(int dim, int *inSequence)
-{
-	sequence = new int[dim];
-	for (int i = 0; i<dim; i++)
-	{
-		sequence[i] = inSequence[i];
 	}
 }
 
@@ -91,25 +51,27 @@ bool Animation::isEnded()
 //Starts the animation
 void Animation::start()
 {
+	startBit = true;
 	ended = false;
-	currentFrame = 0;
-	position = startPosition;
 }
 
 //Starts the animation
 void Animation::start(Vector2D inpos)
 {
-	ended = false;
-	currentFrame = 0;
 	position = inpos;
+	start();
 }
-
 
 //Call this function while the animation is running
 void Animation::animate()
 {	
-	if(!timer.isRunning())
+	if (startBit)
+	{
 		timer.start();
+		currentFrame = 0;
+		position = startPosition;
+		startBit = false;
+	}
 
 	if (timer.millis() > timeInterval[currentFrame])
 	{
@@ -126,39 +88,36 @@ void Animation::animate()
 	}
 
 	render(position.x, position.y);
-	
-}
-
-void Animation::animateB(int inposx, int inposy, int frame)
-{
-	currentFrame = frame;
-	position.x = inposx;
-	position.y = inposy;
-	renderB(position.x, position.y);
 }
 
 //Animates at a given position of the actual frame, dont change it until true
-bool Animation::animate(Vector2D inpos)
+void Animation::animate(Vector2D inpos)
 {
-	bool flag = false;
-
-	if (!timer.isRunning())
-		timer.start();
-
-	if (timer.millis() > *(timeInterval + currentFrame))
+	if (startBit)
 	{
-		currentFrame++;
-		if (currentFrame == frames)
-			ended = true;
-		timer.reset();
-		flag = true;
+		timer.start();
+		currentFrame = 0;
+		setSpaceInterval(position, inpos);
+		position = startPosition;
+		startBit = false;
 	}
 
-	position = inpos;
-	render(position.x, position.y);
-		
-	return flag;
+	if (timer.millis() > timeInterval[currentFrame])
+	{
+		currentFrame++;
+		position = inpos;
+		timer.reset();
+	}
 	
+	if (currentFrame == frames)
+	{
+		currentFrame--;
+		timer.stop();
+		ended = true;
+	}
+
+	render(position.x, position.y);
+
 }
 
 //Renders the default frame, use when standing, not moving 
@@ -170,27 +129,15 @@ void Animation::hold()
 
 void Animation::hold(Vector2D inpos)
 {
-	currentFrame = 0;
 	position = inpos;
-	render(position.x, position.y);
+	hold();
 }
 
 //Renders the current frame
 void Animation::render(float posx, float posy) 
 {
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-
 	currentClip = &clips[sequence[currentFrame]];
-	texture.render(posx + (currentClip->w / 2), posy + (currentClip->h / 2), currentClip, Constants::PLAYER_WIDTH*1.5, Constants::PLAYER_HEIGHT*1.5);
-}
-
-void Animation::renderB(float posx, float posy)
-{
-	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-
-	currentClip = &clips[sequence[currentFrame]-1];
-	if (sequence[currentFrame] == 0)
-		return;
-	texture.render(posx, posy, currentClip);
-	//texture.render((posx - (currentClip->w / 2)), (posy - (currentClip->h / 2)), currentClip);
+	SDL_Rect renderQuad = { posx + (Constants::TILE_DIM / 2) - (Constants::PLAYER_WIDTH / 2),posy - 10 + (Constants::TILE_DIM) - (Constants::PLAYER_HEIGHT), Constants::PLAYER_WIDTH, Constants::PLAYER_HEIGHT };
+	SDL_RenderCopy(gRenderer, sdlTexture, currentClip, &renderQuad);
 }
