@@ -153,6 +153,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Attack.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Dialog.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Fight.h" />
     <ClInclude Include="ListOf.h" />
@@ -172,6 +173,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Attack.cpp" />
     <ClCompile Include="Constants.cpp" />
+    <ClCompile Include="Dialog.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fight.cpp" />
     <ClCompile Include="Main.cpp" />

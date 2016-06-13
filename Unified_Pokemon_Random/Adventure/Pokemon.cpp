@@ -23,6 +23,8 @@ bool Pokemon::loadFromFile()
 	bool success = true;
 	loadStats();
 
+	//cout << pathBody << endl;
+
 	if (!body.loadFromFile(pathBody))
 	{
 		cout<<"Failed to load body texture image!"<<endl;
@@ -89,9 +91,14 @@ void Pokemon::loadStats()
 
 	for (int i = 0; i < 4; i++)
 	{
-		attacks += new Attack(attackId[i]);
-		attacks[attacks.getNumber() - 1].loadStats();
+		if (attackId[i] != -1)
+		{
+			attacks += new Attack(attackId[i]);
+			attacks[attacks.getNumber() - 1].loadStats();
+		}
 	}
+
+	//cout << dexNum << sName << endl;
 }
 
 void Pokemon::setData(int d[])

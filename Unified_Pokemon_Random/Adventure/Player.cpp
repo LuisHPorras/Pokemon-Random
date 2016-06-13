@@ -2,7 +2,7 @@
 
 //CONSTRUCTION - DESTRUCTION
 Player::Player():
-	//HP, Name and Level positions
+	//Render, HP, Name and Level positions
 	Pokemon(216, 75, 60, 33, 312+10, 33),
 	pcurrentHP(210, 92),
 	pmaxHP(286+10, 92)

@@ -8,6 +8,7 @@ template <class T> class ListOf
 	int number;
 public:
 	ListOf(void);
+	//ListOf(const ListOf&);
 	~ListOf(void);
 
 	void operator+=(T* t);
@@ -24,6 +25,12 @@ template<class T> ListOf<T>::ListOf(void)
 	number = 0;
 }
 
+//template<class T> ListOf<T>::ListOf(const ListOf& l)
+//{
+//	ListOf<T>::ListOf();
+//	for (int i = 0; i < l.number; i++)
+//		list += l.list[i];
+//}
 
 template<class T> ListOf<T>::~ListOf(void)
 {

@@ -11,6 +11,7 @@
 #include "Pokemon.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Dialog.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ class Fight
 {
 	//SCENE
 	Texture background;
+//	Dialog dialog;
 
 	ListOf<Pokemon> pokemon;
 
@@ -25,12 +27,14 @@ class Fight
 
 	//STATE COORDINATION ATRIBUTES
 	Vector2D cursor;
-	Vector2D* option[4];
+	ListOf<Vector2D> option;
+public:
 	enum States
 	{
+		MAIN,
+		STATE_TOTAL
+	};
 
-	}state;
-public:
 	//CONSTRUCTION - DESTRUCTION
 	Fight(void);
 	~Fight(void);
@@ -46,5 +50,7 @@ public:
 	//EVENT MANAGEMENT
 	void events(SDL_Event &e, bool &quit);
 	void coordinateStates(SDL_Event &e);
+private:
+	States state;
 };
 
