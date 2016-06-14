@@ -8,6 +8,7 @@ Fight::Fight(void)
 	for (int i=0; i < 4; i++)
 		option += new Vector2D(posOpt[i*2], posOpt[i*2+1]);
 	cursor = option[0];
+	state = Constants::MAIN;
 }
 
 

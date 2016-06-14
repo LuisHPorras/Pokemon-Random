@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include <SDL.h>
 #include <iostream>
 #include <SDL_image.h>
@@ -25,16 +26,12 @@ class Fight
 
 	static Text_Manager info;
 
+	Constants::FightState state;
+
 	//STATE COORDINATION ATRIBUTES
 	Vector2D cursor;
 	ListOf<Vector2D> option;
 public:
-	enum States
-	{
-		MAIN,
-		STATE_TOTAL
-	};
-
 	//CONSTRUCTION - DESTRUCTION
 	Fight(void);
 	~Fight(void);
@@ -50,7 +47,5 @@ public:
 	//EVENT MANAGEMENT
 	void events(SDL_Event &e, bool &quit);
 	void coordinateStates(SDL_Event &e);
-private:
-	States state;
 };
 

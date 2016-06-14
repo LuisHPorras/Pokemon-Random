@@ -2,7 +2,7 @@
 
 
 
-Dialog::Dialog(ListOf<Vector2D> inoptions):
+Dialog::Dialog(ListOf<Vector2D> inoptions) :
 	option(inoptions)
 {
 	for (int i = 0; i < 4; i++)
@@ -62,19 +62,19 @@ void Dialog::free()
 		toption[i].free();
 }
 
-//void Dialog::events(Fight::States state)
-//{
-//	for (int i = 0; i < toption.getNumber(); i++)
-//		toption[i].free();
-//
-//	if (state == Fight::MAIN)
-//	{
-//		soption[0] = "Attack";
-//		soption[1] = "Pokemon";
-//		soption[2] = "Objects";
-//		soption[3] = "Escape";
-//	}
-//
-//	for (int i = 0; i < toption.getNumber(); i++)
-//		toption[i].loadFromRenderedText(soption[i]);
-//}
+void Dialog::events(Constants::FightState state)
+{
+	for (int i = 0; i < toption.getNumber(); i++)
+		toption[i].free();
+
+	if (state == Constants::MAIN)
+	{
+		soption[0] = "Attack";
+		soption[1] = "Pokemon";
+		soption[2] = "Objects";
+		soption[3] = "Escape";
+	}
+
+	for (int i = 0; i < toption.getNumber(); i++)
+		toption[i].loadFromRenderedText(soption[i]);
+}

@@ -60,5 +60,10 @@ public:
 		ROCK,
 		TOTAL_TYPES
 	};
+
+	enum FightState {
+		MAIN,
+		TOTAL_FIGHT_STATES
+	};
 };
 

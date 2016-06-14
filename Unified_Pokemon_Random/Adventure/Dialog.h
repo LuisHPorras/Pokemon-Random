@@ -22,9 +22,8 @@ public:
 	bool loadFromFile();
 	void render(int x, int y);
 	void free();
-//	void events(Fight::States state);
+	void events(Constants::FightState state);
 
 	int getWidth() { return menu.getWidth(); }
 	int getHeight() { return menu.getHeight(); }
 };
-
