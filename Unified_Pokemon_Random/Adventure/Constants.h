@@ -10,8 +10,8 @@ public:
 	static const int LEVEL_HEIGHT = 960;
 
 	//Screen dimension constants
-	static const int SCREEN_WIDTH = 800;
-	static const int SCREEN_HEIGHT = 600;
+	static const int SCREEN_WIDTH = 832;
+	static const int SCREEN_HEIGHT = 640;
 
 	static const int DIM = 400;
 
@@ -52,6 +52,15 @@ public:
 		KEY_PRESS_DIRECTION_RIGHT,
 		KEY_PRESS_DIRECTION_TOTAL,
 		KEY_PRESS_DIRECTION_DEFAULT
+	};
+
+	enum LayerType
+	{
+		WALKABLE,
+		WATER,
+		TALLGRASS,
+		NOTWALKABLE,
+		TOTAL_LAYERS
 	};
 
 	enum Types {

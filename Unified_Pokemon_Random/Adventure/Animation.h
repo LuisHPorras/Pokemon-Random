@@ -31,6 +31,10 @@ public:
 	void hold();
 	void hold(Vector2D inpos);
 
+	void stand();
+	void stand(int inPeriod);
+	void stand(Vector2D pos, int inPeriod);
+
 private:
 
 	Timer timer;
@@ -39,9 +43,11 @@ private:
 	int frames;
 	int currentFrame;
 	int *sequence;
+	int standPeriod;
 	int *timeInterval;
 	bool startBit;
 	bool ended;
+	bool standing;
 
 	void render(float posx, float posy);
 };

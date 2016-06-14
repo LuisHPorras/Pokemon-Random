@@ -7,45 +7,24 @@ Map::~Map()
 void Map::loadFromFile()
 {
 	background.loadFromFile("sprites/map.png");
-	background.setClips(spriteWidth, spriteHeigth, 64, 64);
+	background.setClips(spriteWidth, spriteHeight, 64, 64);
+	for (int i = 0; i < numLayers; i++)
+		layers += new Layer;
+	layers[0].setLayer(width, height, &background, walkable, Constants::WALKABLE);
+	layers[1].setLayer(width, height, &background, notwalkable, Constants::NOTWALKABLE);
+	layers[2].setLayer(width, height, &background, water, Constants::WATER);
+	layers[3].setLayer(width, height, &background, tallgrass, Constants::TALLGRASS);
 }
 
 void Map::printMap()
 {
-	printLayer(walkable);
-	printLayer(tallgrass);
-	printLayer(water);
-	printLayer(notwalkable);
+	for (int i = 0; i < numLayers; i++)
+		layers[i].print();
 }
 
 
 void Map::printSubMap(int x, int y, int w, int h)
 {
-	printLayer(walkable, x, y, w, h);
-	printLayer(tallgrass, x, y, w, h);
-	printLayer(water, x, y, w, h);
-	printLayer(notwalkable, x, y, w, h);
-}
-
-void Map::printLayer(int *layer)
-{
-	int count = 0;
-	for (int i = 0; i < height; i++)
-		for (int j = 0; j < width; j++)
-		{
-			background.render(64 * j, 64 * i, layer[count]-1);
-			count++;
-		}
-}
-
-void Map::printLayer(int *layer, int x, int y, int w, int h)
-{
-	for (int i = 0; i < h; i++)
-		for (int j = 0; j < w; j++)
-		{
-			unsigned tile = ((i + y)* width) + (j + x);
-			if (tile >= 400) system("PAUSE");
-			if(layer[tile] != 0)
-				background.render(64 * j, 64 * i, layer[tile]-1);
-		}
+	for (int i = 0; i < numLayers; i++)
+		layers[i].print(x,y,w,h);
 }

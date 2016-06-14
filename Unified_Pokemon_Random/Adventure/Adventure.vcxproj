@@ -156,6 +156,7 @@
     <ClInclude Include="Dialog.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Fight.h" />
+    <ClInclude Include="Layer.h" />
     <ClInclude Include="ListOf.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Movable_Thing.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Dialog.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Fight.cpp" />
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Movable_Thing.cpp" />

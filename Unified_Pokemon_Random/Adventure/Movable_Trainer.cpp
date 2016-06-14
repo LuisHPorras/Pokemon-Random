@@ -23,7 +23,16 @@ void Movable_Trainer::walk()
 {
 	if (trajIndex == trajDim)
 		trajIndex = 0;
-	if (move(trajectory[trajIndex]))
-		trajIndex++;
+	if (trajectory[trajIndex] == STAND)
+	{
+		if (animation[orientation].isEnded())
+		{
+			animation[orientation].stand(16 * period);
+			trajIndex++;
+		}
+	}
+	else
+		if (move(trajectory[trajIndex]))
+			trajIndex++;
 }
 

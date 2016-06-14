@@ -21,7 +21,7 @@ public:
 	void close();
 	
 //private:
-	Orientation t[4] = { DOWN,UP,DOWN,UP };
+	//Orientation t[4] = { STAND, DOWN, STAND, UP };
 	Vector2D cameraPos;
 	Vector2D sceneDim;
 	Map route_0;

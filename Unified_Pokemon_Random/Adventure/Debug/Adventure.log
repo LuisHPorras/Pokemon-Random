@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Dialog.cpp
   Generating Code...
   Compiling...
@@ -8,3 +9,7 @@
   Generating Code...
 Player_Trainer.obj : error LNK2019: unresolved external symbol "public: void __thiscall Vector2D::operator-=(class Vector2D)" (??ZVector2D@@QAEXV0@@Z) referenced in function "public: void __thiscall Player_Trainer::setRelPos(class Vector2D)" (?setRelPos@Player_Trainer@@QAEXVVector2D@@@Z)
 C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe : fatal error LNK1120: 1 unresolved externals
+=======
+﻿  Adventure.cpp
+  Adventure.vcxproj -> C:\Users\Luis Herce Porras\Desktop\LHP\Proyectos\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
+>>>>>>> origin/development

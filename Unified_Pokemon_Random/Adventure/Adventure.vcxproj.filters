@@ -78,6 +78,12 @@
     <ClInclude Include="Dialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+>>>>>>> origin/development
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp">
@@ -143,5 +149,11 @@
     <ClCompile Include="Dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="Layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+>>>>>>> origin/development
   </ItemGroup>
 </Project>

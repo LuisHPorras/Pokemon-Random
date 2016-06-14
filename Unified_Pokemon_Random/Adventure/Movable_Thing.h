@@ -10,7 +10,8 @@ enum Orientation
 	UP,
 	LEFT,
 	RIGHT,
-	ORIENTATION_TOTAL
+	ORIENTATION_TOTAL,
+	STAND
 };
 
 class Movable_Thing: public Thing
@@ -24,10 +25,11 @@ public:
 	bool move(Orientation inOrientation);
 	void animate();
 	void animate(Vector2D pos);
+	void setOrientation(Orientation o) { orientation = o; }
 
 protected:
 	Vector2D prevPos;
-	Orientation orientation;
+	Orientation orientation = DOWN;
 	Animation animation[ORIENTATION_TOTAL];
 
 	int nclipsX = 3;
