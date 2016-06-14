@@ -1,7 +1,5 @@
 #include "Text_Manager.h"
 
-
-
 Text_Manager::Text_Manager(const string inName, int inmaxLn, int inmaxCol): 
 	name(inName),
 	maxLn(inmaxLn),
@@ -60,10 +58,8 @@ Constants::Types Text_Manager::getType(int Ln, int Col)
 		return Constants::ROCK;
 }
 
-int* Text_Manager::getLine(int Ln)
+void Text_Manager::getLineInt(int Ln, int* aux)
 {
-	int aux[Constants::NUM_STATS_STATE];
 	for (int i = 0; i < maxCol; i++)
 		aux[i] = stoi(data[Ln][i]);
-	return aux;
 }

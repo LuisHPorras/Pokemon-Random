@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <SDL.h>
 #include <iostream>
 #include <SDL_image.h>
@@ -20,7 +19,7 @@ class Fight
 {
 	//SCENE
 	Texture background;
-//	Dialog dialog;
+	Dialog dialog;
 
 	ListOf<Pokemon> pokemon;
 

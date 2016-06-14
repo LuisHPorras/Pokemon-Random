@@ -2,7 +2,7 @@
 
 //CONSTRUCTION - DESTRUCTION
 Fight::Fight(void)
-	//:dialog(option)
+	:dialog(option)
 {
 	int posOpt[8] = {100, 40, 475, 40, 100, 130, 475, 130};
 	for (int i=0; i < 4; i++)
@@ -25,7 +25,7 @@ void Fight::close()
 	background.free();
 	pokemon[0].free();
 	pokemon[1].free();
-	//dialog.free();
+	dialog.free();
 }
 
 //MEDIA METHODS
@@ -41,11 +41,11 @@ bool Fight::loadMedia()
 		success = false;
 	}
 
-	/*if (!dialog.loadFromFile())
+	if (!dialog.loadFromFile())
 	{
 		cout << "Failed to load dialog texture image!" << endl;
 		success = false;
-	}*/
+	}
 
 	for (int i = 0; i < pokemon.getNumber(); i++)
 		if (!pokemon[i].loadFromFile())
@@ -63,8 +63,8 @@ void Fight::render()
 
 	//Render textures
 	background.render(0, 0);
-	//dialog.render(0, Constants::SCREEN_HEIGHT - dialog.getHeight());
-	//pokemon[0].render(0, Constants::SCREEN_HEIGHT - dialog.getHeight() - pokemon[0].getHeight());
+	dialog.render(0, Constants::SCREEN_HEIGHT - dialog.getHeight());
+	pokemon[0].render(0, Constants::SCREEN_HEIGHT - dialog.getHeight() - pokemon[0].getHeight());
 	pokemon[1].render(Constants::SCREEN_WIDTH - pokemon[1].getWidth(), 0);
 
 	SDL_RenderPresent(gRenderer);
@@ -79,7 +79,7 @@ void Fight::events(SDL_Event &e, bool &quit)
 	{
 		//Write events
 		coordinateStates(e);
-		//dialog.events(state);
+		dialog.events(state);
 	}
 }
 
@@ -89,13 +89,15 @@ void Fight::coordinateStates(SDL_Event &e)
 
 void Fight::loadStats()
 {
+	int aux[Constants::NUM_STATS_STATE];
 	for (int i = 0; i < Constants::NUM_PKMN_STATE; i++)
 	{
 		if (info.getDataInt(i, 0) == 0)
 			pokemon += new Player;
 		if (info.getDataInt(i, 0) == 1)
 			pokemon += new Enemy;
-		pokemon[pokemon.getNumber() - 1].setData(info.getLine(i));
+		info.getLineInt(i, aux);
+		pokemon[pokemon.getNumber() - 1].setData(aux);
 	}
 }
 

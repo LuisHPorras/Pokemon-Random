@@ -88,3 +88,8 @@ void Movable_Thing::animate(Vector2D pos)
 	else
 		animation[orientation].animate(pos*Constants::TILE_DIM);
 }
+
+void Movable_Thing::setRelPos(Vector2D pos)
+{
+	animation[orientation].setSpaceInterval((prevPos - pos)*Constants::TILE_DIM, (position - pos)*Constants::TILE_DIM);
+}

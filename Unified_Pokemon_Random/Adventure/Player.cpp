@@ -7,8 +7,6 @@ Player::Player():
 	pcurrentHP(210, 92),
 	pmaxHP(286+10, 92)
 {
-	smaxHP = to_string(maxHP);
-	scurrentHP = to_string(currentHP);
 	groundMultiplyer = 1;
 }
 
@@ -20,8 +18,7 @@ Player::~Player(void)
 //GRAPHIC METHODS
 bool Player::loadFromFile()
 {
-	bool success = Pokemon::loadFromFile();
-	updateXData();
+	bool success;
 
 	if (!ground.loadFromFile("Texturas/battle_base_wild_player.png"))
 	{
@@ -34,6 +31,12 @@ bool Player::loadFromFile()
 		cout << "Failed to load data texture image!" << endl;
 		success = false;
 	}
+
+	success = Pokemon::loadFromFile();
+	updateXData();
+
+	smaxHP = to_string(maxHP);
+	scurrentHP = to_string(currentHP);
 
 	if (!tmaxHP.loadFromRenderedText(smaxHP))
 	{
@@ -54,7 +57,7 @@ void Player::render(int x, int y)
 {
 	Pokemon::render(x, y);
 	tcurrentHP.render(posData.x + pcurrentHP.x, posData.y + pcurrentHP.y);
-	tmaxHP.render(posData.x + pcurrentHP.x, posData.y + pcurrentHP.y);
+	tmaxHP.render(posData.x + pmaxHP.x, posData.y + pmaxHP.y);
 }
 
 void Player::free()

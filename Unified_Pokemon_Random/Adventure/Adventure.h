@@ -20,8 +20,8 @@ public:
 	void render();
 	void close();
 	
-//private:
-	//Orientation t[4] = { STAND, DOWN, STAND, UP };
+private:
+	Orientation t[4] = { STAND, DOWN, STAND, UP };
 	Vector2D cameraPos;
 	Vector2D sceneDim;
 	Map route_0;

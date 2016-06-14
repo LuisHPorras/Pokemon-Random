@@ -1,3 +1,3 @@
 Side	DexNum	Lv	HP	Attk[0]	Attk[1]	Attk[2]	Attk[3]
 0	0	50	60	0	1	-1	-1
-1	1	50	80	-1	-1	-1	-1
+1	2	50	80	-1	-1	-1	-1

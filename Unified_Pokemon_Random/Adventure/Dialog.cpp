@@ -35,7 +35,7 @@ bool Dialog::loadFromFile()
 		success = false;
 	}
 
-	if (!cursor.loadFromFile("Texturas/ball_small"))
+	if (!cursor.loadFromFile("Texturas/ball_small.png"))
 	{
 		cout << "Failed to load cursor texture image!" << endl;
 		success = false;

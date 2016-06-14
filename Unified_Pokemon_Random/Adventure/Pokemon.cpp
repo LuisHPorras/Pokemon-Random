@@ -8,7 +8,6 @@ Pokemon::Pokemon(int xHP, int yHP, int xName, int yName, int xLv, int yLv):
 {
 	width = 0;
 	height = 0;
-	sLv = to_string(Lv);
 }
 
 
@@ -98,6 +97,7 @@ void Pokemon::loadStats()
 		}
 	}
 
+	sLv = to_string(Lv);
 	//cout << dexNum << sName << endl;
 }
 

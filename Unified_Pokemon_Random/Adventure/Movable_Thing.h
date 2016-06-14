@@ -26,6 +26,7 @@ public:
 	void animate();
 	void animate(Vector2D pos);
 	void setOrientation(Orientation o) { orientation = o; }
+	 virtual void setRelPos(Vector2D pos);
 
 protected:
 	Vector2D prevPos;

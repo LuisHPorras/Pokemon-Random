@@ -10,8 +10,8 @@ public:
 	static const int LEVEL_HEIGHT = 960;
 
 	//Screen dimension constants
-	static const int SCREEN_WIDTH = 832;
-	static const int SCREEN_HEIGHT = 640;
+	static const int SCREEN_WIDTH = 800;
+	static const int SCREEN_HEIGHT = 600;
 
 	static const int DIM = 400;
 
@@ -21,7 +21,7 @@ public:
 	static const int TILE_DIM = 64;
 
 	//DYMENSIONS OF FILES MATRIX
-	static const int NUM_PKMN_DEX = 2;
+	static const int NUM_PKMN_DEX = 3;
 	static const int NUM_STATS_DEX = 6;
 	static const int NUM_ATTKS = 2;
 	static const int NUM_STATS_ATTKS = 3;

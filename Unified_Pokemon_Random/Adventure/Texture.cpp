@@ -96,7 +96,7 @@ void Texture::render(int x, int y, SDL_Rect* clip)
 
 void Texture::render(int x, int y)
 {
-	SDL_Rect renderQuad = { x, y, width/2, height/2 };
+	SDL_Rect renderQuad = { x, y, width, height };
 	SDL_RenderCopy(gRenderer, sdlTexture, NULL, &renderQuad);
 }
 

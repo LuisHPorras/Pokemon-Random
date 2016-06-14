@@ -3,7 +3,7 @@
 #include "Texture.h"
 #include "Vector2D.h"
 #include "ListOf.h"
-#include "Fight.h"
+#include "Constants.h"
 
 class Dialog
 {

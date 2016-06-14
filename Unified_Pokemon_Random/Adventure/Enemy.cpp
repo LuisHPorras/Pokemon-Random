@@ -15,7 +15,7 @@ Enemy::~Enemy(void)
 
 bool Enemy::loadFromFile()
 {
-	bool success = Pokemon::loadFromFile();
+	bool success;
 
 	if (!ground.loadFromFile("Texturas/battle_base_wild_enemy.png"))
 	{
@@ -28,6 +28,8 @@ bool Enemy::loadFromFile()
 		cout << "Failed to load data texture image!" << endl;
 		success = false;
 	}
+
+	success = Pokemon::loadFromFile();
 
 	return success;
 }

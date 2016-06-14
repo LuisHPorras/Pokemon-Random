@@ -25,7 +25,7 @@ void Layer::print(int x, int y, int w, int h)
 	for (int i = 0; i < h; i++)
 		for (int j = 0; j < w; j++)
 		{
-			tile = ((i + y)* sprite->getNumClipsX()) + (j + x);
+			tile = ((i + y) * width) + (j + x);
 			if (tile >= width*height) system("PAUSE");
 			if (clipSequence[tile] != 0)
 				sprite->render(64 * j, 64 * i, clipSequence[tile] - 1);
