@@ -18,6 +18,8 @@ public:
 	void setClips(int inClipsX, int inClipsY, int inWidth, int inHeight);
 	virtual void render(int x, int y, int numClip);
 	SDL_Rect getClip(int numClip);
+	int getNumClipsX() { return numClipsX; }
+	int getNumClipsY() { return numClipsY; }
 
 protected:
 	SDL_Rect* clips;

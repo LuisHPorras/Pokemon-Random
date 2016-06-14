@@ -65,6 +65,12 @@ void Animation::start(Vector2D inpos)
 //Call this function while the animation is running
 void Animation::animate()
 {	
+	if (standing)
+	{
+		stand();
+		return;
+	}
+
 	if (startBit)
 	{
 		timer.start();
@@ -93,6 +99,12 @@ void Animation::animate()
 //Animates at a given position of the actual frame, dont change it until true
 void Animation::animate(Vector2D inpos)
 {
+	if (standing)
+	{
+		stand();
+		return;
+	}
+
 	if (startBit)
 	{
 		timer.start();
@@ -117,7 +129,6 @@ void Animation::animate(Vector2D inpos)
 	}
 
 	render(position.x, position.y);
-
 }
 
 //Renders the default frame, use when standing, not moving 
@@ -131,6 +142,40 @@ void Animation::hold(Vector2D inpos)
 {
 	position = inpos;
 	hold();
+}
+
+void Animation::stand()
+{
+	if (!timer.isRunning())
+	{
+		start();
+		timer.start();
+		currentFrame = 0;
+		standing = true;
+	}
+
+	if (timer.millis() > standPeriod)
+	{
+		timer.stop();
+		ended = true;
+		standing = false;
+	}
+
+	render(position.x, position.y);
+}
+
+
+void Animation::stand(int inPeriod)
+{
+	standPeriod = inPeriod;
+
+	stand();
+}
+
+void Animation::stand(Vector2D pos, int inPeriod)
+{
+	position = pos;
+	stand(inPeriod);
 }
 
 //Renders the current frame

@@ -14,25 +14,25 @@ bool Movable_Thing::loadFromFile()
 		return false;
 	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setClips(nclipsX, nclipsY, xvec, yvec, wvec, hvec);
 	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setSequence(dim, sequence, timeInterval);
-	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setPosition(position);
+	animation[Constants::KEY_PRESS_DIRECTION_DOWN].setPosition(position*Constants::TILE_DIM);
 
 	if (!animation[Constants::KEY_PRESS_DIRECTION_UP].loadFromFile("player/player_up_anim2.png"))
 		return false;
 	animation[Constants::KEY_PRESS_DIRECTION_UP].setClips(nclipsX, nclipsY, xvec, yvec, wvec, hvec);
 	animation[Constants::KEY_PRESS_DIRECTION_UP].setSequence(dim, sequence, timeInterval);
-	animation[Constants::KEY_PRESS_DIRECTION_UP].setPosition(position);
+	animation[Constants::KEY_PRESS_DIRECTION_UP].setPosition(position*Constants::TILE_DIM);
 
 	if (!animation[Constants::KEY_PRESS_DIRECTION_LEFT].loadFromFile("player/player_left_anim2.png"))
 		return false;
 	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setClips(nclipsX, nclipsY, xvec, yvec, wvec, hvec);
 	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setSequence(dim, sequence, timeInterval);
-	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setPosition(position);
+	animation[Constants::KEY_PRESS_DIRECTION_LEFT].setPosition(position*Constants::TILE_DIM);
 
 	if (!animation[Constants::KEY_PRESS_DIRECTION_RIGHT].loadFromFile("player/player_right_anim2.png"))
 		return false;
 	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setClips(nclipsX, nclipsY, xvec, yvec, wvec, hvec);
 	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setSequence(dim, sequence, timeInterval);
-	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setPosition(position);
+	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setPosition(position*Constants::TILE_DIM);
 
 	return true;
 }
@@ -44,7 +44,6 @@ bool Movable_Thing::loadFromSprite(Sprite sprite)
 
 bool Movable_Thing::move(Orientation inOrientation)
 {
-
 	if (animation[inOrientation].isEnded() && animation[orientation].isEnded())
 	{
 		orientation = inOrientation;

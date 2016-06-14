@@ -1,0 +1,31 @@
+#pragma once
+
+#include "Sprite.h"
+
+class Layer
+{
+public:
+	Layer();
+	~Layer();
+
+	void print();
+	void print(int x, int y, int w, int h);
+
+	void setLayer(int w, int h, Sprite* s, int* seq, Constants::LayerType t);
+	void setLayerDim(int w, int h) { width = w; height = h; }
+	void setSprite(Sprite* s) { sprite = s; }
+	void setClipSequence(int* seq) { clipSequence = seq; }
+	void setType(Constants::LayerType t) { type = t; }
+
+private:
+
+	Constants::LayerType type;
+	
+	int *clipSequence;
+	int width;
+	int height;
+
+	Sprite *sprite;
+
+};
+
