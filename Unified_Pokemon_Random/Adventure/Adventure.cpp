@@ -52,17 +52,17 @@ void Adventure::events(SDL_Event& e, bool& quit)
 	cameraPos = player.getPos() - (sceneDim/2);
 
 	//Keep the camera in bounds
-	if (camerapos.x < 0)
-		camerapos.x = 0;
+	if (cameraPos.x < 0)
+		cameraPos.x = 0;
 
-	if (camerapos.y < 0)
-		camerapos.y = 0;
+	if (cameraPos.y < 0)
+		cameraPos.y = 0;
 	
-	if (camerapos.x > route_0.getwidth() - scenedim.x)
-		camerapos.x = route_0.getwidth() - scenedim.x;
+	if (cameraPos.x > route_0.getWidth() - sceneDim.x)
+		cameraPos.x = route_0.getWidth() - sceneDim.x;
 
-	if (camerapos.y > route_0.getheight() - scenedim.y)
-		camerapos.y = route_0.getheight() - scenedim.y;
+	if (cameraPos.y > route_0.getHeight() - sceneDim.y)
+		cameraPos.y = route_0.getHeight() - sceneDim.y;
 
 	if (cameraPos.x != 0 && cameraPos.x != route_0.getWidth() - sceneDim.x && (e.key.keysym.sym  == SDLK_RIGHT || e.key.keysym.sym == SDLK_LEFT))
 		player.setRelPos(cameraPos);
