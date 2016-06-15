@@ -22,6 +22,9 @@ bool Adventure::loadFromFile()
 
 void Adventure::events(SDL_Event& e, bool& quit)
 {
+
+	//movement = Constants::STAND;
+
 	if (e.type == SDL_QUIT)
 	{
 		quit = true;
@@ -101,7 +104,7 @@ void Adventure::render()
 		{
 			if (i == 0)
 				if (Interaction::interaction(route_0.getLayer(j), &player) == Constants::FIGHT)
-					state = Constants::FIGHT;
+					request = Constants::FIGHT;
 			Interaction::interaction(route_0.getLayer(j), &trainers[i]);
 		}
 

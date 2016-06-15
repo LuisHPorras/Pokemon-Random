@@ -21,10 +21,11 @@ public:
 	void setCameraPos();
 	void render();
 	void close();
-	Constants::State getState() { return state; }
+	Constants::State getRequest() { return request; }
+	void clearRequest() { request = Constants::ADVENTURE; }
 	
 private:
-	Constants::State state = Constants::ADVENTURE;
+	Constants::State request = Constants::ADVENTURE;
 	Constants::Orientation movement = Constants::STAND;
 	Constants::Orientation t[4] = { Constants::STAND, Constants::DOWN, Constants::STAND, Constants::UP };
 	Vector2D cameraPos;

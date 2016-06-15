@@ -2,6 +2,7 @@
 
 #include "Layer.h"
 #include "Player_Trainer.h"
+#include <time.h>     
 #include <stdlib.h>
 
 class Interaction
