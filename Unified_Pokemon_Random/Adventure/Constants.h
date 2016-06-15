@@ -30,6 +30,7 @@ public:
 
 	enum State
 	{
+		START_SCREEN,
 		ADVENTURE,
 		FIGHT,
 		STATE_TOTAL

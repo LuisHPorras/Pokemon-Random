@@ -1,3 +1,3 @@
-﻿  Main.cpp
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\adventure.h(18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Adventure.vcxproj -> C:\Users\Luis Herce Porras\Desktop\LHP\Proyectos\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
+﻿  World.cpp
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\adventure.h(18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Adventure.vcxproj -> C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe

@@ -19,7 +19,7 @@ public:
 
 	bool init();
 	bool loadMedia();
-	bool startScreen(SDL_Event& e, bool& quit);
+	void startScreen();
 	void keyEvent(SDL_Event& e, bool& quit);
 	void render();
 	void close();
@@ -30,6 +30,10 @@ private:
 	Fight fight;
 	Adventure adventure;
 
+	Texture startBack;
+	Texture pokemonTitle;
+	Texture hitmonlee;
+	Texture instructions;
 };
 
 	

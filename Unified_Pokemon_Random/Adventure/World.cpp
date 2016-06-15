@@ -1,11 +1,12 @@
 #include "World.h"
 
-World::World(): state(Constants::ADVENTURE)
+World::World(): state(Constants::START_SCREEN)
 {
 }
 
 World::~World()
 {
+	startBack.free();
 }
 
 bool World::init()
@@ -72,33 +73,51 @@ bool World::loadMedia()
 	if (!fight.loadMedia() || !adventure.loadFromFile())
 		return false;
 
+	if (!startBack.loadFromFile("Texturas/Wallpapers/pidgeot.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!pokemonTitle.loadFromFile("Texturas/pokemon.png"))
+	{
+		cout << "Failed to load Title texture image!" << endl;
+		return false;
+	}
+
+	textColor = { 0xFF, 0xCB, 0x05 };
+	if (!instructions.loadFromRenderedText("Press 'a' to start"))
+	{
+		cout << "Failed to load instructions from text!" << endl;
+		return false;
+	}
+	textColor = { 0x5A, 0x5A, 0x5A };
+
+	if (!hitmonlee.loadFromFile("Texturas/hitmonlee.png"))
+	{
+		cout << "Failed to load hitmonlee texture image!" << endl;
+		return false;
+	}
+
 	return true;
 }
 
-bool World::startScreen(SDL_Event& e, bool& quit)
+void World::startScreen()
 {
-
-	if (e.type == SDL_QUIT)
-	{
-		quit = true;
-	}
-	else if (e.type == SDL_KEYDOWN)
-	{
-		switch (e.key.keysym.sym)
-		{
-		case SDLK_a:
-			return true;
-		default:
-				break;
-		}
-	}
-	return false;
+	//startBack.render(0, 0);
 }
 
 void World::keyEvent(SDL_Event& e, bool& quit)
 {
 	switch (e.key.keysym.sym)
 	{
+	case SDLK_a:
+		if (state == Constants::START_SCREEN)
+		{
+			state = Constants::ADVENTURE;
+			break;
+		}
+		break;
 	case SDLK_m:
 		state = Constants::ADVENTURE;
 		break;
@@ -109,6 +128,8 @@ void World::keyEvent(SDL_Event& e, bool& quit)
 		break;
 	}
 
+	if (state == Constants::START_SCREEN)
+		startScreen();
 	if (state == Constants::FIGHT)
 		fight.events(e, quit);
 	if (state == Constants::ADVENTURE)
@@ -122,6 +143,13 @@ void World::render()
 		fight.render();
 	if (state == Constants::ADVENTURE)
 		adventure.render();
+	if (state == Constants::START_SCREEN)
+	{
+		startBack.render(0, 0);
+		pokemonTitle.render(50, 50);
+		instructions.render(150, 225);
+		hitmonlee.render(150, 300);
+	}
 
 	if (fight.getState() == Constants::ADVENTURE)
 	{
