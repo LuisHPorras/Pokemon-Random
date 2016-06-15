@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <time.h>
 #include "Texture.h"
 #include "Vector2D.h"
 #include "Constants.h"
@@ -62,10 +63,13 @@ public:
 	void loadStats();
 	void setData(int d[]);
 
+	float attacking(Pokemon p, Attack a);
+
 	//INTERFACE INLINE METHODS
 	int getWidth(){return width;}
 	int getHeight(){return height;}
 	int getCurrentHP(){return currentHP;}
+	ListOf<Attack> getAttacks() { return attacks; }
 };
 
 

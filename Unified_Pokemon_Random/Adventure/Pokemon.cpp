@@ -8,6 +8,7 @@ Pokemon::Pokemon(int xHP, int yHP, int xName, int yName, int xLv, int yLv):
 {
 	width = 0;
 	height = 0;
+	srand(time(NULL));
 }
 
 
@@ -110,6 +111,27 @@ void Pokemon::setData(int d[])
 	currentHP = d[3];
 	for (int i = 0; i < 4; i++)
 		attackId[i] = d[i + 4];
+}
+
+float Pokemon::attacking(Pokemon p, Attack a)
+{
+	float stab = 1.0f;
+	if (type == a.getType())
+		stab = 1.5f;
+
+	float effectiveness = 1.0f;
+	if ((a.getType() == Constants::FLYING && p.type == Constants::FIGHTING) || (a.getType() == Constants::FIGHTING && p.type == Constants::ROCK) || (a.getType() == Constants::ROCK && p.type == Constants::FLYING))
+		effectiveness = 2.0f;
+	if ((a.getType() == Constants::FLYING && p.type == Constants::ROCK) || (a.getType() == Constants::ROCK && p.type == Constants::FIGHTING) || (a.getType() == Constants::FIGHTING && p.type == Constants::FLYING))
+		effectiveness = 0.5f;
+
+	float random = 85 + rand() % (100 + 1 - 85);
+
+	p.currentHP -= (int)(0.01f * random * stab * effectiveness * ((0.2 * Lv + 1) * attack * a.getPower() / 25 / p.defence + 2));
+	if (currentHP < 0)
+		currentHP = 0;
+
+	return effectiveness;
 }
 
 Text_Manager Pokemon::pokedex("data/Pokedex.txt", Constants::NUM_PKMN_DEX, Constants::NUM_STATS_DEX);

@@ -61,7 +61,7 @@ void Dialog::free()
 		toption[i].free();
 }
 
-void Dialog::events(Constants::FightState state, Vector2D posCursor)
+void Dialog::events(Constants::FightState state, Vector2D posCursor, ListOf<Attack> attacks)
 {
 	pcursor = posCursor;
 
@@ -74,6 +74,14 @@ void Dialog::events(Constants::FightState state, Vector2D posCursor)
 		soption[1] = "Pokemon";
 		soption[2] = "Objects";
 		soption[3] = "Escape";
+	}
+
+	if (state == Constants::ATTACK)
+	{
+		soption[0] = attacks[0].getName();
+		soption[1] = attacks[1].getName();
+		soption[2] = attacks[2].getName();
+		soption[3] = attacks[3].getName();
 	}
 
 	for (int i = 0; i < toption.getNumber(); i++)

@@ -75,6 +75,7 @@ public:
 
 	enum FightState {
 		MAIN,
+		ATTACK,
 		TOTAL_FIGHT_STATES
 	};
 };

@@ -102,8 +102,14 @@ void World::render()
 		fight.render();
 	if (state == Constants::ADVENTURE)
 		adventure.render();
+
 	if (adventure.getState() == Constants::FIGHT)
 		state = Constants::FIGHT;
+	if (fight.getState() == Constants::ADVENTURE)
+	{
+		state = Constants::ADVENTURE;
+		fight.clearRequest();
+	}
 }
 
 void World::close()

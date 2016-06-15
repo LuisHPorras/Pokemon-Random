@@ -25,5 +25,7 @@ public:
 
 	//INTERFACE INLINE METHODS
 	int getPower(){return power;}
+	string getName() { return name; }
+	Constants::Types getType() { return type; }
 };
 

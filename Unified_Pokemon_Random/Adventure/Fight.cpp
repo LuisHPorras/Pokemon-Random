@@ -9,6 +9,7 @@ Fight::Fight(void)
 	cursor = option[0];
 	dialog.updateOptions(option);
 	state = Constants::MAIN;
+	request = Constants::FIGHT;
 }
 
 
@@ -79,7 +80,7 @@ void Fight::events(SDL_Event &e, bool &quit)
 	{
 		//Write events
 		coordinateStates(e);
-		dialog.events(state, cursor);
+		dialog.events(state, cursor, pokemon[0].getAttacks());
 	}
 }
 
@@ -89,9 +90,6 @@ void Fight::coordinateStates(SDL_Event &e)
 	{
 	case SDLK_UP:
 		direction = Constants::UP;
-		if (state == Constants::MAIN)
-		{
-		}
 		break;
 	case SDLK_DOWN:
 		direction = Constants::DOWN;
@@ -103,9 +101,31 @@ void Fight::coordinateStates(SDL_Event &e)
 		direction = Constants::RIGHT;
 		break;
 	case SDLK_a:
+		if (state == Constants::MAIN)
+		{
+			if (cursor == option[0])
+			{
+				state = Constants::ATTACK;
+				break;
+			}
+			if (cursor == option[3])
+			{
+				request = Constants::ADVENTURE;
+				break;
+			}
+		}
 		break;
 	case SDLK_s:
+		if (state == Constants::ATTACK)
+		{
+			state = Constants::MAIN;
+			break;
+		}
 		break;
+	}
+	if (state == Constants::MAIN)
+	{
+		moveCursor();
 	}
 }
 

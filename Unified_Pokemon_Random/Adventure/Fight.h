@@ -26,6 +26,7 @@ class Fight
 	static Text_Manager info;
 
 	Constants::FightState state;
+	Constants::State request;
 
 	//STATE COORDINATION ATRIBUTES
 	Vector2D cursor;
@@ -48,5 +49,8 @@ public:
 	void events(SDL_Event &e, bool &quit);
 	void coordinateStates(SDL_Event &e);
 	void moveCursor();
+
+	Constants::State getState() { return request;}
+	void clearRequest() { request = Constants::FIGHT; }
 };
 

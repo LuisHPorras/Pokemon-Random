@@ -4,6 +4,7 @@
 #include "Vector2D.h"
 #include "ListOf.h"
 #include "Constants.h"
+#include "Attack.h"
 
 class Dialog
 {
@@ -22,7 +23,7 @@ public:
 	bool loadFromFile();
 	void render(int x, int y);
 	void free();
-	void events(Constants::FightState state, Vector2D posCursor);
+	void events(Constants::FightState state, Vector2D posCursor, ListOf<Attack> attacks);
 	void updateOptions(ListOf<Vector2D> inoptions);
 
 	int getWidth() { return menu.getWidth(); }
