@@ -70,7 +70,6 @@ bool Movable_Thing::move(Constants::Orientation inOrientation)
 			break;
 		}
 		animation[orientation].start();
-		//animation[orientation].setSpaceInterval(prevPos*Constants::TILE_DIM, position*Constants::TILE_DIM);
 		return true;
 	}
 	return false;
@@ -90,11 +89,11 @@ void Movable_Thing::animate()
 	else
 	{
 		animation[orientation].animate();
-		if (flagTallGrass)
+		/*if (flagTallGrass)
 		{
 			renderTallGrass();
 			flagTallGrass = false;
-		}
+		}*/
 	}
 }
 
