@@ -3,6 +3,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <stdlib.h>
+#include <time.h>
 #include "Constants.h"
 #include "Texture.h"
 #include "Map.h"
@@ -13,7 +15,7 @@
 class Adventure
 {
 public:
-	Adventure(): route_0(20, 20), sceneDim(13,11) {}
+	Adventure() : route_0(20, 20), sceneDim(13, 11) { srand(time(NULL)); }
 	~Adventure();
 
 	bool loadFromFile();

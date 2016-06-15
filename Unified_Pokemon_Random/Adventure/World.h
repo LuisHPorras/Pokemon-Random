@@ -19,6 +19,7 @@ public:
 
 	bool init();
 	bool loadMedia();
+	bool startScreen(SDL_Event& e, bool& quit);
 	void keyEvent(SDL_Event& e, bool& quit);
 	void render();
 	void close();

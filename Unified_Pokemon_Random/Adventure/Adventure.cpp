@@ -6,9 +6,9 @@ Adventure::~Adventure()
 
 bool Adventure::loadFromFile()
 {
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 2; i++)
 	{
-		trainers += new Movable_Trainer(i+1, i+2);
+		trainers += new Movable_Trainer(rand() % 20, rand() % 20);
 		trainers[i].loadFromFile();
 		trainers[i].setTrajectory(4, t);
 	}

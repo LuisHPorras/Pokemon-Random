@@ -75,6 +75,26 @@ bool World::loadMedia()
 	return true;
 }
 
+bool World::startScreen(SDL_Event& e, bool& quit)
+{
+
+	if (e.type == SDL_QUIT)
+	{
+		quit = true;
+	}
+	else if (e.type == SDL_KEYDOWN)
+	{
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_a:
+			return true;
+		default:
+				break;
+		}
+	}
+	return false;
+}
+
 void World::keyEvent(SDL_Event& e, bool& quit)
 {
 	switch (e.key.keysym.sym)

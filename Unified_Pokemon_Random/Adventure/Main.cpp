@@ -20,6 +20,7 @@ World world;
 
 int main(int argc, char* args[])
 {
+	bool startScreen = true;
 
 	//Start up SDL and create window
 	if (!world.init())
@@ -42,11 +43,20 @@ int main(int argc, char* args[])
 	{
 		SDL_RenderClear(gRenderer);
 
-		//Handle events on queue
-		if (SDL_PollEvent(&e) != 0)
-			world.keyEvent(e, quit);
-		
-		world.render();
+		if (startScreen)
+		{
+			SDL_PollEvent(&e);
+			//if (SDL_PollEvent(&e) != 0)
+			startScreen = !(world.startScreen(e, quit));
+		}
+		else 
+		{
+			//Handle events on queue
+			if (SDL_PollEvent(&e) != 0)
+				world.keyEvent(e, quit);
+
+			world.render();
+		}
 
 		//Update screen
 		SDL_RenderPresent(gRenderer);
