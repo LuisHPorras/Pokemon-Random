@@ -1,8 +1,2 @@
-<<<<<<< HEAD
-﻿  Fight.cpp
+﻿  Dialog.cpp
   Adventure.vcxproj -> C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
-=======
-﻿  Interaction.cpp
-c:\users\pc\desktop\pokemon-random\unified_pokemon_random\adventure\interaction.cpp(40): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Adventure.vcxproj -> C:\Users\pc\Desktop\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
->>>>>>> origin/development

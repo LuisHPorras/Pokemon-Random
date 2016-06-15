@@ -10,6 +10,8 @@ Fight::Fight(void)
 	dialog.updateOptions(option);
 	state = Constants::MAIN;
 	request = Constants::FIGHT;
+	busy = false;
+	effectiveness = 1.0f;
 }
 
 
@@ -80,7 +82,27 @@ void Fight::events(SDL_Event &e, bool &quit)
 	{
 		//Write events
 		coordinateStates(e);
-		dialog.events(state, cursor, pokemon[0].getAttacks());
+
+		if (busy == false)
+		{
+			if (state == Constants::ATTACKING)
+			{
+				for (int i = 0; i < 4; i++)
+					if (cursor == option[i])
+						effectiveness = pokemon[0].attacking(pokemon[1], pokemon[0].getAttacks()[i]);
+				cursor = option[0];
+				busy = true;
+			}
+
+			if (effectiveness == -1.0f)
+			{
+				request = Constants::ADVENTURE;
+				state = Constants::MAIN;
+				busy = false;
+			}
+		}
+
+		dialog.events(state, cursor, pokemon[0].getAttacks(), effectiveness);
 	}
 }
 
@@ -91,21 +113,26 @@ void Fight::coordinateStates(SDL_Event &e)
 	case SDLK_UP:
 		direction = Constants::UP;
 		break;
+
 	case SDLK_DOWN:
 		direction = Constants::DOWN;
 		break;
+
 	case SDLK_LEFT:
 		direction = Constants::LEFT;
 		break;
+
 	case SDLK_RIGHT:
 		direction = Constants::RIGHT;
 		break;
+
 	case SDLK_a:
 		if (state == Constants::MAIN)
 		{
 			if (cursor == option[0])
 			{
 				state = Constants::ATTACK;
+				cursor = option[0];
 				break;
 			}
 			if (cursor == option[3])
@@ -113,17 +140,36 @@ void Fight::coordinateStates(SDL_Event &e)
 				request = Constants::ADVENTURE;
 				break;
 			}
+			if (cursor == option[1] || cursor == option[2])
+			{
+				state = Constants::NOT_IMPLEMENTED;
+				cursor = option[0];
+				break;
+			}
 		}
+
 		break;
-	case SDLK_s:
+
+	case SDLK_z:
 		if (state == Constants::ATTACK)
 		{
+			state = Constants::ATTACKING;
+			break;
+		}
+
+		break;
+
+	case SDLK_s:
+		if (state == Constants::ATTACK || state == Constants::NOT_IMPLEMENTED || state == Constants::ATTACKING)
+		{
 			state = Constants::MAIN;
+			cursor = option[0];
+			busy = false;
 			break;
 		}
 		break;
 	}
-	if (state == Constants::MAIN)
+	if (state == Constants::MAIN || state == Constants::ATTACK)
 	{
 		moveCursor();
 	}

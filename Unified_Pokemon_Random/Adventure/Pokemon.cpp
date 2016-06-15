@@ -113,7 +113,7 @@ void Pokemon::setData(int d[])
 		attackId[i] = d[i + 4];
 }
 
-float Pokemon::attacking(Pokemon p, Attack a)
+float Pokemon::attacking(Pokemon& p, Attack a)
 {
 	float stab = 1.0f;
 	if (type == a.getType())
@@ -128,8 +128,11 @@ float Pokemon::attacking(Pokemon p, Attack a)
 	float random = 85 + rand() % (100 + 1 - 85);
 
 	p.currentHP -= (int)(0.01f * random * stab * effectiveness * ((0.2 * Lv + 1) * attack * a.getPower() / 25 / p.defence + 2));
-	if (currentHP < 0)
-		currentHP = 0;
+	if (p.currentHP <= 0)
+	{
+		p.currentHP = p.maxHP;
+		effectiveness = -1.0f;
+	}
 
 	return effectiveness;
 }

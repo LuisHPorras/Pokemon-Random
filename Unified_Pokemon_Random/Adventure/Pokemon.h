@@ -63,7 +63,7 @@ public:
 	void loadStats();
 	void setData(int d[]);
 
-	float attacking(Pokemon p, Attack a);
+	float attacking(Pokemon& p, Attack a);
 
 	//INTERFACE INLINE METHODS
 	int getWidth(){return width;}

@@ -22,11 +22,13 @@ class Fight
 	Dialog dialog;
 
 	ListOf<Pokemon> pokemon;
+	float effectiveness;
 
 	static Text_Manager info;
 
 	Constants::FightState state;
 	Constants::State request;
+	bool busy;
 
 	//STATE COORDINATION ATRIBUTES
 	Vector2D cursor;

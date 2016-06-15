@@ -103,19 +103,15 @@ void World::render()
 	if (state == Constants::ADVENTURE)
 		adventure.render();
 
-<<<<<<< HEAD
-	if (adventure.getState() == Constants::FIGHT)
-		state = Constants::FIGHT;
 	if (fight.getState() == Constants::ADVENTURE)
 	{
 		state = Constants::ADVENTURE;
 		fight.clearRequest();
-=======
+	}
 	if (adventure.getRequest() == Constants::FIGHT)
 	{
 		state = Constants::FIGHT;
 		adventure.clearRequest();
->>>>>>> origin/development
 	}
 }
 

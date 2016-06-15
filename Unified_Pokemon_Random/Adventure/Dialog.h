@@ -23,7 +23,7 @@ public:
 	bool loadFromFile();
 	void render(int x, int y);
 	void free();
-	void events(Constants::FightState state, Vector2D posCursor, ListOf<Attack> attacks);
+	void events(Constants::FightState state, Vector2D posCursor, ListOf<Attack> attacks, float effectiveness);
 	void updateOptions(ListOf<Vector2D> inoptions);
 
 	int getWidth() { return menu.getWidth(); }

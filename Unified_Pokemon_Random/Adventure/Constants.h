@@ -23,7 +23,7 @@ public:
 	//DYMENSIONS OF FILES MATRIX
 	static const int NUM_PKMN_DEX = 3;
 	static const int NUM_STATS_DEX = 6;
-	static const int NUM_ATTKS = 2;
+	static const int NUM_ATTKS = 8;
 	static const int NUM_STATS_ATTKS = 3;
 	static const int NUM_PKMN_STATE = 2;
 	static const int NUM_STATS_STATE = 8;
@@ -76,6 +76,8 @@ public:
 	enum FightState {
 		MAIN,
 		ATTACK,
+		ATTACKING,
+		NOT_IMPLEMENTED,
 		TOTAL_FIGHT_STATES
 	};
 };
