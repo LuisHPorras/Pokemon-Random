@@ -45,7 +45,7 @@ private:
 	int *sequence;
 	int standPeriod;
 	int *timeInterval;
-	bool startBit;
+	bool started;
 	bool ended;
 	bool standing;
 

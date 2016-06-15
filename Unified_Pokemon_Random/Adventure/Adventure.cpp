@@ -8,9 +8,9 @@ bool Adventure::loadFromFile()
 {
 	for (int i = 0; i < 5; i++)
 	{
-		trainers[i] = new Movable_Trainer(i, i);
-		trainers[i]->loadFromFile();
-		trainers[i]->setTrajectory(4, t);
+		trainers += new Movable_Trainer(i+1, i+2);
+		trainers[i].loadFromFile();
+		trainers[i].setTrajectory(4, t);
 	}
 
 	route_0.loadFromFile();
@@ -30,26 +30,35 @@ void Adventure::events(SDL_Event& e, bool& quit)
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_UP:
-			player.move(UP);
+			movement = Constants::UP;
 			break;
 
 		case SDLK_DOWN:
-			player.move(DOWN);
+			movement = Constants::DOWN;
 			break;
 
 		case SDLK_LEFT:
-			player.move(LEFT);
+			movement = Constants::LEFT;
 			break;
 
 		case SDLK_RIGHT:
-			player.move(RIGHT);
+			movement = Constants::RIGHT;
 			break;
 
 		default:
+			movement = Constants::STAND;
 			break;
 		}
-	
-	cameraPos = player.getPos() - (sceneDim/2);
+	if (movement != Constants::STAND)
+	{
+		player.move(movement);
+		player.setBattleFlag(true);
+	}
+}
+
+void Adventure::setCameraPos()
+{
+	cameraPos = player.getPos() - (sceneDim / 2);
 
 	//Keep the camera in bounds
 	if (cameraPos.x < 0)
@@ -57,43 +66,49 @@ void Adventure::events(SDL_Event& e, bool& quit)
 
 	if (cameraPos.y < 0)
 		cameraPos.y = 0;
-	
+
 	if (cameraPos.x > route_0.getWidth() - sceneDim.x)
 		cameraPos.x = route_0.getWidth() - sceneDim.x;
 
 	if (cameraPos.y > route_0.getHeight() - sceneDim.y)
 		cameraPos.y = route_0.getHeight() - sceneDim.y;
 
-	if (cameraPos.x != 0 && cameraPos.x != route_0.getWidth() - sceneDim.x && (e.key.keysym.sym  == SDLK_RIGHT || e.key.keysym.sym == SDLK_LEFT))
+	player.setRelPos(Vector2D(0, 0));
+
+	if (cameraPos.x != 0 && cameraPos.x != route_0.getWidth() - sceneDim.x && (movement == Constants::RIGHT || movement == Constants::LEFT))
 		player.setRelPos(cameraPos);
 
-	if (cameraPos.y != 0 && cameraPos.y != route_0.getHeight() - sceneDim.y && (e.key.keysym.sym == SDLK_DOWN || e.key.keysym.sym == SDLK_UP))
+	if (cameraPos.y != 0 && cameraPos.y != route_0.getHeight() - sceneDim.y && (movement == Constants::DOWN || movement == Constants::UP))
 		player.setRelPos(cameraPos);
 
-	if ((cameraPos.x == route_0.getWidth() - sceneDim.x || cameraPos.x == 0) && (e.key.keysym.sym == SDLK_RIGHT || e.key.keysym.sym == SDLK_LEFT))
+	if ((cameraPos.x == route_0.getWidth() - sceneDim.x || cameraPos.x == 0) && (movement == Constants::RIGHT || movement == Constants::LEFT))
 		player.Movable_Thing::setRelPos(cameraPos);
 
-	if ((cameraPos.y == route_0.getHeight() - sceneDim.y || cameraPos.y == 0) && (e.key.keysym.sym == SDLK_DOWN || e.key.keysym.sym == SDLK_UP))
+	if ((cameraPos.y == route_0.getHeight() - sceneDim.y || cameraPos.y == 0) && (movement == Constants::DOWN || movement == Constants::UP))
 		player.Movable_Thing::setRelPos(cameraPos);
-	//player.setRelPos(cameraPos);
 }
 
 void Adventure::render()
 {
-	
+	setCameraPos();
+
 	//Render background
 	route_0.printSubMap(cameraPos.x, cameraPos.y, sceneDim.x, sceneDim.y);
-	
-	for (int i = 0; i < 5; i++)
-		for (int j = 0; j < route_0.getNumLayers();j++)
+
+	for (int i = 0; i < trainers.getNumber(); i++)
+	{
+		for (int j = 0; j < route_0.getNumLayers(); j++)
 		{
-			if(i==0)
-				Interaction::interaction(route_0.getLayer(j), &player);
-			Interaction::interaction(route_0.getLayer(j), trainers[i]);
-			trainers[i]->walk();
-			trainers[i]->setRelPos(cameraPos);
-			trainers[i]->animate();
+			if (i == 0)
+				if (Interaction::interaction(route_0.getLayer(j), &player) == Constants::FIGHT)
+					state = Constants::FIGHT;
+			Interaction::interaction(route_0.getLayer(j), &trainers[i]);
 		}
+
+		trainers[i].walk();
+		trainers[i].setRelPos(cameraPos);
+		trainers[i].animate();
+	}
 
 	player.animate();
 }
@@ -101,6 +116,8 @@ void Adventure::render()
 void Adventure::close()
 {
 	//Free loaded images
+	/*for (int i = 0; i < 5; i++)
+		delete &trainers[i];*/
 }
 
 

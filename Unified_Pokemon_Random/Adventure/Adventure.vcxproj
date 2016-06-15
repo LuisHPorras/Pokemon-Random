@@ -160,6 +160,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="ListOf.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Map_Manager.h" />
     <ClInclude Include="Movable_Thing.h" />
     <ClInclude Include="Movable_Trainer.h" />
     <ClInclude Include="Player.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Map_Manager.cpp" />
     <ClCompile Include="Movable_Thing.cpp" />
     <ClCompile Include="Movable_Trainer.cpp" />
     <ClCompile Include="Player.cpp" />

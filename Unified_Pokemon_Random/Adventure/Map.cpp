@@ -14,6 +14,7 @@ void Map::loadFromFile()
 	layers[1].setLayer(width, height, &background, notwalkable, Constants::NOTWALKABLE);
 	layers[2].setLayer(width, height, &background, water, Constants::WATER);
 	layers[3].setLayer(width, height, &background, tallgrass, Constants::TALLGRASS);
+	layers[4].setLayer(width, height, &background, entrance, Constants::ENTRANCE);
 }
 
 void Map::printMap()

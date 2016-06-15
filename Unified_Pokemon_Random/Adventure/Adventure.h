@@ -18,16 +18,20 @@ public:
 
 	bool loadFromFile();
 	void events(SDL_Event& e, bool& quit);
+	void setCameraPos();
 	void render();
 	void close();
+	Constants::State getState() { return state; }
 	
 private:
-	Orientation t[4] = { STAND, DOWN, STAND, UP };
+	Constants::State state = Constants::ADVENTURE;
+	Constants::Orientation movement = Constants::STAND;
+	Constants::Orientation t[4] = { Constants::STAND, Constants::DOWN, Constants::STAND, Constants::UP };
 	Vector2D cameraPos;
 	Vector2D sceneDim;
 	Map route_0;
 	Player_Trainer player;
-	Movable_Trainer *trainers[5];
+	ListOf<Movable_Trainer> trainers;
 };
 
 

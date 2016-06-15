@@ -25,6 +25,16 @@ void Vector2D::operator -= (Vector2D v2)
 	y -= v2.y;
 }
 
+Vector2D Vector2D::operator + (Vector2D v2)
+{
+	Vector2D result;
+
+	result.x = x + v2.x;
+	result.y = y + v2.y;
+
+	return result;
+}
+
 Vector2D Vector2D::operator - (Vector2D v2)
 {
 	Vector2D result;

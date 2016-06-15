@@ -24,6 +24,7 @@
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="Interaction.cpp" />
+    <ClCompile Include="Map_Manager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventure.h" />
@@ -49,5 +50,6 @@
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Interaction.h" />
+    <ClInclude Include="Map_Manager.h" />
   </ItemGroup>
 </Project>

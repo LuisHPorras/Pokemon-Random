@@ -23,6 +23,7 @@ public:
 	void render();
 	void close();
 
+private:
 	Constants::State state; 
 
 	Fight fight;

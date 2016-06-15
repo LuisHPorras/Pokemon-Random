@@ -10,8 +10,11 @@ public:
 
 	void setRelPos(Vector2D pos);
 	void swimmingRequest() { 42; }
-private:
+	bool getBattleFlag() { return battleFlag; }
+	void setBattleFlag(bool flag) { battleFlag = flag; }
 
+private:
+	bool battleFlag = true;
 };
 
 

@@ -37,11 +37,12 @@ public:
 
 	enum Orientation
 	{
-		ORIENTATION_DOWN,
-		ORIENTATION_UP,
-		ORIENTATION_LEFT,
-		ORIENTATION_RIGHT,
+		DOWN,
+		UP,
+		LEFT,
+		RIGHT,
 		ORIENTATION_TOTAL,
+		STAND
 	};
 
 	enum KeyPressDirection
@@ -60,6 +61,7 @@ public:
 		WATER,
 		TALLGRASS,
 		NOTWALKABLE,
+		ENTRANCE,
 		TOTAL_LAYERS
 	};
 

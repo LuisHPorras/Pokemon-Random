@@ -16,7 +16,6 @@ SDL_Renderer* gRenderer = NULL;
 TTF_Font* gFont = NULL;
 SDL_Color textColor = { 0x5A, 0x5A, 0x5A };
 
-
 World world;
 
 int main(int argc, char* args[])

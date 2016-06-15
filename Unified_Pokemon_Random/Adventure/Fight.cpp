@@ -67,7 +67,7 @@ void Fight::render()
 	pokemon[0].render(0, Constants::SCREEN_HEIGHT - dialog.getHeight() - pokemon[0].getHeight());
 	pokemon[1].render(Constants::SCREEN_WIDTH - pokemon[1].getWidth(), 0);
 
-	SDL_RenderPresent(gRenderer);
+	//SDL_RenderPresent(gRenderer);
 }
 
 //EVENT MANAGEMENT

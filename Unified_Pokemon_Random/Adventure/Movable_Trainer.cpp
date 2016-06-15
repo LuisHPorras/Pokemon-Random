@@ -13,7 +13,7 @@ void Movable_Trainer::setSprite()
 
 }
 
-void Movable_Trainer::setTrajectory(int dim, Orientation *t)
+void Movable_Trainer::setTrajectory(int dim, Constants::Orientation *t)
 {
 	trajDim = dim;
 	trajectory = t;
@@ -23,7 +23,7 @@ void Movable_Trainer::walk()
 {
 	if (trajIndex == trajDim)
 		trajIndex = 0;
-	if (trajectory[trajIndex] == STAND)
+	if (trajectory[trajIndex] == Constants::STAND)
 	{
 		if (animation[orientation].isEnded())
 		{

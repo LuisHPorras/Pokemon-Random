@@ -3,7 +3,7 @@
 Animation::Animation(void)
 {
 	ended = true;
-	startBit = false;
+	started = false;
 }
 
 Animation::~Animation(void)
@@ -51,7 +51,7 @@ bool Animation::isEnded()
 //Starts the animation
 void Animation::start()
 {
-	startBit = true;
+	started = true;
 	ended = false;
 }
 
@@ -71,20 +71,22 @@ void Animation::animate()
 		return;
 	}
 
-	if (startBit)
+	if (started)
 	{
 		timer.start();
 		currentFrame = 0;
 		position = startPosition;
-		startBit = false;
+		started = false;
 	}
 
 	if (timer.millis() > timeInterval[currentFrame])
 	{
 		currentFrame++;
-		position += spaceInterval;
+		//position = startPosition + spaceInterval * currentFrame;
 		timer.reset();
 	}
+
+	position = startPosition + spaceInterval * currentFrame;
 
 	if (currentFrame == frames)
 	{
@@ -105,13 +107,13 @@ void Animation::animate(Vector2D inpos)
 		return;
 	}
 
-	if (startBit)
+	if (started)
 	{
 		timer.start();
 		currentFrame = 0;
 		setSpaceInterval(position, inpos);
 		position = startPosition;
-		startBit = false;
+		started = false;
 	}
 
 	if (timer.millis() > timeInterval[currentFrame])
@@ -161,6 +163,7 @@ void Animation::stand()
 		standing = false;
 	}
 
+	position = endPosition;
 	render(position.x, position.y);
 }
 

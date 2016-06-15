@@ -1,15 +1,13 @@
-c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\debug\vc140.pdb
-c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\debug\vc140.idb
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\vc140.pdb
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\vc140.idb
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\attack.obj
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\constants.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\dialog.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\enemy.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\fight.obj
+c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\interaction.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\layer.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\main.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\map.obj
+c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\map_manager.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\movable_thing.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\movable_trainer.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\player.obj
@@ -22,28 +20,17 @@ c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\timer.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\vector2d.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\world.obj
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\animation.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.obj
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\interaction.obj
-c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\debug\adventure.ilk
-c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\debug\adventure.exe
-c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\debug\adventure.pdb
+c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\animation.obj
+c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\attack.obj
+c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\constants.obj
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\debug\adventure.ilk
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\debug\adventure.exe
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\debug\adventure.pdb
+c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\fight.obj.enc
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\cl.command.1.tlog
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\cl.read.1.tlog
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\cl.write.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link-cvtres.read.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link-cvtres.write.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link-rc.read.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link-rc.write.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.8888-cvtres.read.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.8888-cvtres.write.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.8888-rc.read.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.8888-rc.write.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.8888.read.1.tlog
-c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.8888.write.1.tlog
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.command.1.tlog
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.read.1.tlog
 c:\users\luis herce porras\desktop\lhp\proyectos\pokemon-random\unified_pokemon_random\adventure\debug\adventure.tlog\link.write.1.tlog

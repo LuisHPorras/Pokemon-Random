@@ -11,11 +11,11 @@ public:
 	~Movable_Trainer();
 
 	void setSprite();
-	void setTrajectory(int dim, Orientation *t);
+	void setTrajectory(int dim, Constants::Orientation *t);
 	void walk();
 
 private:
-	Orientation *trajectory;
+	Constants::Orientation *trajectory;
 	int trajDim;
 	int trajIndex;
 

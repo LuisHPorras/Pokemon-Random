@@ -8,6 +8,7 @@ public:
 	
 	void operator += (Vector2D v2);
 	void operator -= (Vector2D v2);
+	Vector2D operator + (Vector2D v2);
 	Vector2D operator - (Vector2D v2);
 	Vector2D operator / (int n);
 	Vector2D operator * (int n);

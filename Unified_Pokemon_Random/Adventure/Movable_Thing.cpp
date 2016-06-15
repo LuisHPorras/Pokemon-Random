@@ -45,7 +45,7 @@ bool Movable_Thing::loadFromSprite(Sprite sprite)
 	return true;
 }
 
-bool Movable_Thing::move(Orientation inOrientation)
+bool Movable_Thing::move(Constants::Orientation inOrientation)
 {
 	if (animation[inOrientation].isEnded() && animation[orientation].isEnded())
 	{
@@ -54,23 +54,23 @@ bool Movable_Thing::move(Orientation inOrientation)
 
 		switch (orientation)
 		{
-		case DOWN:
+		case Constants::DOWN:
 			position.y++;
 			break;
-		case UP:
+		case Constants::UP:
 			position.y--;
 			break;
-		case LEFT:
+		case Constants::LEFT:
 			position.x--;
 			break;
-		case RIGHT:
+		case Constants::RIGHT:
 			position.x++;
 			break;
 		default:
 			break;
 		}
 		animation[orientation].start();
-		animation[orientation].setSpaceInterval(prevPos*Constants::TILE_DIM, position*Constants::TILE_DIM);
+		//animation[orientation].setSpaceInterval(prevPos*Constants::TILE_DIM, position*Constants::TILE_DIM);
 		return true;
 	}
 	return false;
@@ -108,10 +108,11 @@ void Movable_Thing::animate(Vector2D pos)
 
 void Movable_Thing::renderTallGrass()
 {
-	tallGrass.render(position.x * Constants::TILE_DIM, position.y * Constants::TILE_DIM + Constants::TILE_DIM/2);
+	tallGrass.render((position.x - camPos.x) * Constants::TILE_DIM, (position.y - camPos.y) * Constants::TILE_DIM + Constants::TILE_DIM/2 + 5);
 }
 
 void Movable_Thing::setRelPos(Vector2D pos)
 {
-	animation[orientation].setSpaceInterval((prevPos - pos)*Constants::TILE_DIM, (position - pos)*Constants::TILE_DIM);
+	camPos = pos;
+	animation[orientation].setSpaceInterval((prevPos - camPos)*Constants::TILE_DIM, (position - camPos)*Constants::TILE_DIM);
 }
