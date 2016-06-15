@@ -40,3 +40,9 @@ void Layer::setLayer(int w, int h, Sprite* s, int* seq, Constants::LayerType t)
 	setType(t);
 }
 
+void Layer::setLayer(int w, int h, int* seq, Constants::LayerType t)
+{
+	setLayerDim(w, h);
+	setSequence(seq);
+	setType(t);
+}

@@ -13,7 +13,8 @@ bool Adventure::loadFromFile()
 		trainers[i].setTrajectory(4, t);
 	}
 
-	route_0.loadFromFile();
+	route_0.loadFromFileT();
+	//route_0.loadFromFile();
 	if (!player.loadFromFile())
 		return false;
 
@@ -95,9 +96,6 @@ void Adventure::render()
 {
 	setCameraPos();
 
-	//Render background
-	route_0.printSubMap(cameraPos.x, cameraPos.y, sceneDim.x, sceneDim.y);
-
 	for (int i = 0; i < trainers.getNumber(); i++)
 	{
 		for (int j = 0; j < route_0.getNumLayers(); j++)
@@ -110,8 +108,14 @@ void Adventure::render()
 
 		trainers[i].walk();
 		trainers[i].setRelPos(cameraPos);
-		trainers[i].animate();
 	}
+
+	//Render background
+	route_0.printMap(-cameraPos.x, -cameraPos.y);
+	//route_0.printSubMap(cameraPos.x, cameraPos.y, sceneDim.x, sceneDim.y);
+
+	for (int i = 0; i < trainers.getNumber(); i++)
+		trainers[i].animate();
 
 	player.animate();
 }
