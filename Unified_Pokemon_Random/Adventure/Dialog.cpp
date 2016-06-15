@@ -105,6 +105,19 @@ void Dialog::events(Constants::FightState state, Vector2D posCursor, ListOf<Atta
 		soption[3] = " ";
 	}
 
+	if (state == Constants::DEFENDING)
+	{
+		soption[0] = "Defending";
+		soption[1] = " ";
+		if (effectiveness == 0.5f)
+			soption[2] = "It's not very effective";
+		if (effectiveness == 2.0f)
+			soption[2] = "It's super effective";
+		if (effectiveness == 1.0f)
+			soption[2] = " ";
+		soption[3] = " ";
+	}
+
 	for (int i = 0; i < toption.getNumber(); i++)
 		toption[i].loadFromRenderedText(soption[i]);
 }

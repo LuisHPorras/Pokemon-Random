@@ -90,6 +90,17 @@ void Fight::events(SDL_Event &e, bool &quit)
 				for (int i = 0; i < 4; i++)
 					if (cursor == option[i])
 						effectiveness = pokemon[0].attacking(pokemon[1], pokemon[0].getAttacks()[i]);
+
+				cursor = option[0];
+				busy = true;
+			}
+
+			if (state == Constants::DEFENDING)
+			{
+				int random = rand() % 5;
+				effectiveness = pokemon[1].attacking(pokemon[0], pokemon[1].getAttacks()[random]);
+				cout << pokemon[1].getAttacks()[random].getName() << endl;
+
 				cursor = option[0];
 				busy = true;
 			}
@@ -98,6 +109,7 @@ void Fight::events(SDL_Event &e, bool &quit)
 			{
 				request = Constants::ADVENTURE;
 				state = Constants::MAIN;
+				effectiveness = 1.0f;
 				busy = false;
 			}
 		}
@@ -138,6 +150,8 @@ void Fight::coordinateStates(SDL_Event &e)
 			if (cursor == option[3])
 			{
 				request = Constants::ADVENTURE;
+				for (int i = 0; i < 2; i++)
+					pokemon[i].updateHP();
 				break;
 			}
 			if (cursor == option[1] || cursor == option[2])
@@ -146,6 +160,14 @@ void Fight::coordinateStates(SDL_Event &e)
 				cursor = option[0];
 				break;
 			}
+		}
+
+		if (state == Constants::ATTACKING)
+		{
+			state = Constants::DEFENDING;
+			busy = false;
+			cursor = option[0];
+			break;
 		}
 
 		break;
@@ -160,7 +182,7 @@ void Fight::coordinateStates(SDL_Event &e)
 		break;
 
 	case SDLK_s:
-		if (state == Constants::ATTACK || state == Constants::NOT_IMPLEMENTED || state == Constants::ATTACKING)
+		if (state == Constants::ATTACK || state == Constants::NOT_IMPLEMENTED || state == Constants::DEFENDING)
 		{
 			state = Constants::MAIN;
 			cursor = option[0];

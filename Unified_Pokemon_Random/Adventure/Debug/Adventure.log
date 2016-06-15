@@ -1,2 +1,3 @@
-﻿  Dialog.cpp
+﻿cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  Fight.cpp
   Adventure.vcxproj -> C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
