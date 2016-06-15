@@ -2,8 +2,7 @@
 
 
 
-Dialog::Dialog(ListOf<Vector2D> inoptions) :
-	option(inoptions)
+Dialog::Dialog()
 {
 	for (int i = 0; i < 4; i++)
 	{
@@ -47,7 +46,7 @@ bool Dialog::loadFromFile()
 void Dialog::render(int x, int y)
 {
 	menu.render(x, y);
-	info.render(x + menu.getWidth() - info.getWidth(), y);
+	//info.render(x + menu.getWidth() - info.getWidth(), y);
 	cursor.render(x + pcursor.x, y + pcursor.y);
 	for (int i = 0; i < option.getNumber(); i++)
 		toption[i].render(x + option[i].x + 10 + cursor.getWidth(), y + option[i].y);
@@ -62,8 +61,10 @@ void Dialog::free()
 		toption[i].free();
 }
 
-void Dialog::events(Constants::FightState state)
+void Dialog::events(Constants::FightState state, Vector2D posCursor)
 {
+	pcursor = posCursor;
+
 	for (int i = 0; i < toption.getNumber(); i++)
 		toption[i].free();
 
@@ -77,4 +78,9 @@ void Dialog::events(Constants::FightState state)
 
 	for (int i = 0; i < toption.getNumber(); i++)
 		toption[i].loadFromRenderedText(soption[i]);
+}
+
+void Dialog::updateOptions(ListOf<Vector2D> inoptions)
+{
+	option = inoptions;
 }

@@ -45,7 +45,7 @@ Constants::State Interaction::interaction(Layer* l, Player_Trainer* t)
 			t->setRenderTallGrass();
 			randNum = rand() % 100 + 1;
 			if (t->getBattleFlag())
-				if (randNum > 50)
+				if (randNum > 99)
 				{
 					return Constants::FIGHT;
 					t->setBattleFlag(false);

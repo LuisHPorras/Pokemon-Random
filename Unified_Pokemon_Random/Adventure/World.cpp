@@ -81,6 +81,7 @@ void World::keyEvent(SDL_Event& e, bool& quit)
 	{
 	case SDLK_m:
 		state = Constants::ADVENTURE;
+		break;
 	case SDLK_n:
 		state = Constants::FIGHT;
 		break;

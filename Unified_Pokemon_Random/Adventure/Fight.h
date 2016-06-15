@@ -30,6 +30,7 @@ class Fight
 	//STATE COORDINATION ATRIBUTES
 	Vector2D cursor;
 	ListOf<Vector2D> option;
+	Constants::Orientation direction;
 public:
 	//CONSTRUCTION - DESTRUCTION
 	Fight(void);
@@ -46,5 +47,6 @@ public:
 	//EVENT MANAGEMENT
 	void events(SDL_Event &e, bool &quit);
 	void coordinateStates(SDL_Event &e);
+	void moveCursor();
 };
 

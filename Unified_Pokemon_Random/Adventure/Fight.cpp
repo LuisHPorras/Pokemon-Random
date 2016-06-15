@@ -2,12 +2,12 @@
 
 //CONSTRUCTION - DESTRUCTION
 Fight::Fight(void)
-	:dialog(option)
 {
 	int posOpt[8] = {100, 40, 475, 40, 100, 130, 475, 130};
 	for (int i=0; i < 4; i++)
 		option += new Vector2D(posOpt[i*2], posOpt[i*2+1]);
 	cursor = option[0];
+	dialog.updateOptions(option);
 	state = Constants::MAIN;
 }
 
@@ -79,12 +79,97 @@ void Fight::events(SDL_Event &e, bool &quit)
 	{
 		//Write events
 		coordinateStates(e);
-		dialog.events(state);
+		dialog.events(state, cursor);
 	}
 }
 
 void Fight::coordinateStates(SDL_Event &e)
 {
+	switch (e.key.keysym.sym)
+	{
+	case SDLK_UP:
+		direction = Constants::UP;
+		if (state == Constants::MAIN)
+		{
+		}
+		break;
+	case SDLK_DOWN:
+		direction = Constants::DOWN;
+		break;
+	case SDLK_LEFT:
+		direction = Constants::LEFT;
+		break;
+	case SDLK_RIGHT:
+		direction = Constants::RIGHT;
+		break;
+	case SDLK_a:
+		break;
+	case SDLK_s:
+		break;
+	}
+}
+
+void Fight::moveCursor()
+{
+	switch (direction)
+	{
+	case Constants::UP:
+		if (cursor == option[0] || cursor == option[1])
+			break;
+		if (cursor == option[2])
+		{
+			cursor = option[0];
+			break;
+		}
+		if (cursor == option[3])
+		{
+			cursor = option[1];
+			break;
+		}
+		break;
+	case Constants::DOWN:
+		if (cursor == option[2] || cursor == option[3])
+			break;
+		if (cursor == option[0])
+		{
+			cursor = option[2];
+			break;
+		}
+		if (cursor == option[1])
+		{
+			cursor = option[3];
+			break;
+		}
+		break;
+	case Constants::LEFT:
+		if (cursor == option[0] || cursor == option[2])
+			break;
+		if (cursor == option[1])
+		{
+			cursor = option[0];
+			break;
+		}
+		if (cursor == option[3])
+		{
+			cursor = option[2];
+			break;
+		}
+		break;
+	case Constants::RIGHT:
+		if (cursor == option[1] || cursor == option[3])
+			break;
+		if (cursor == option[0])
+		{
+			cursor = option[1];
+			break;
+		}
+		if (cursor == option[2])
+		{
+			cursor = option[3];
+			break;
+		}
+		break;
+	}
 }
 
 void Fight::loadStats()

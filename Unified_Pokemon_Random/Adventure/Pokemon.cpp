@@ -98,6 +98,8 @@ void Pokemon::loadStats()
 	}
 
 	sLv = to_string(Lv);
+	if (currentHP == -1)
+		currentHP = maxHP;
 	//cout << dexNum << sName << endl;
 }
 

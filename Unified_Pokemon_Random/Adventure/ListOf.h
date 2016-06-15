@@ -14,6 +14,7 @@ public:
 	void operator+=(T* t);
 	void erase();
 	T& operator[](int index);
+	void operator=(ListOf&);
 
 	int getNumber() { return number; }
 };
@@ -37,7 +38,7 @@ template<class T> ListOf<T>::ListOf(ListOf& l)
 
 template<class T> ListOf<T>::~ListOf(void)
 {
-	erase();
+	//erase();
 }
 
 template<class T> void ListOf<T>::operator+=(T* t)
@@ -63,4 +64,11 @@ template<class T> T& ListOf<T>::operator[](int index)
 	if (index >= number)
 		index = number - 1;
 	return *list[index];
+}
+
+template<class T> void ListOf<T>::operator=(ListOf& l)
+{
+	for (int i = 0; i < l.number; i++)
+		list[i] = l.list[i];
+	number = l.number;
 }
