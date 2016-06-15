@@ -62,7 +62,12 @@ void Pokemon::render(int x, int y)
 	//Health render
 	float relativeHP = (float) currentHP / maxHP;
 	SDL_Rect hp = {posData.x + HP.x, posData.y + HP.y, (int)(144 * relativeHP), 9};
-	SDL_SetRenderDrawColor(gRenderer, 0x00, 0xFF, 0x00, 0xFF);
+	if (relativeHP >= 0.5f)
+		SDL_SetRenderDrawColor(gRenderer, 0x00, 0xFF, 0x00, 0xFF);
+	if (relativeHP >= 0.25f && relativeHP < 0.5f)
+		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0x00, 0xFF);
+	if (relativeHP < 0.25f)
+		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0x00, 0x00, 0xFF);
 	SDL_RenderFillRect(gRenderer, &hp);
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
@@ -130,7 +135,8 @@ float Pokemon::attacking(Pokemon& p, Attack a)
 	p.currentHP -= (int)(0.01f * random * stab * effectiveness * ((0.2 * Lv + 1) * attack * a.getPower() / 25 / p.defence + 2));
 	if (p.currentHP <= 0)
 	{
-		p.currentHP = p.maxHP;
+		updateHP();
+		p.updateHP();
 		effectiveness = -1.0f;
 	}
 

@@ -69,6 +69,7 @@ public:
 	int getWidth(){return width;}
 	int getHeight(){return height;}
 	int getCurrentHP(){return currentHP;}
+	void updateHP() { currentHP = maxHP; }
 	ListOf<Attack> getAttacks() { return attacks; }
 };
 
