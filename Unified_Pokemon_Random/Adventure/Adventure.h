@@ -8,6 +8,7 @@
 #include "Map.h"
 #include "Player_Trainer.h"
 #include "Movable_Trainer.h"
+#include "Interaction.h"
 
 class Adventure
 {

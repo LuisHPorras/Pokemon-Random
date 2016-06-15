@@ -25,13 +25,20 @@ public:
 	bool move(Orientation inOrientation);
 	void animate();
 	void animate(Vector2D pos);
+	void renderTallGrass();
+	void setRenderTallGrass() { flagTallGrass = true; }
 	void setOrientation(Orientation o) { orientation = o; }
-	 virtual void setRelPos(Vector2D pos);
+	void setPos(Vector2D pos) { position = pos; }
+	virtual void setRelPos(Vector2D pos);
+	Vector2D getPrevPos() { return prevPos; }
 
 protected:
 	Vector2D prevPos;
 	Orientation orientation = DOWN;
 	Animation animation[ORIENTATION_TOTAL];
+
+	bool flagTallGrass = false;
+	Texture tallGrass;//Debería ser un puntero, cuando tengamos gestor de texturas
 
 	int nclipsX = 3;
 	int nclipsY = 1;

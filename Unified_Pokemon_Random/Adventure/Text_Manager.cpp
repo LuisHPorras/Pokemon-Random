@@ -56,6 +56,7 @@ Constants::Types Text_Manager::getType(int Ln, int Col)
 		return Constants::FIGHTING;
 	if (type == 2)
 		return Constants::ROCK;
+	return Constants::DEFAULT_TYPE;
 }
 
 void Text_Manager::getLineInt(int Ln, int* aux)

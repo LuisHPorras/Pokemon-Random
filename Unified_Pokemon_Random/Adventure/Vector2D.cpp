@@ -46,6 +46,8 @@ Vector2D Vector2D::operator / (int n)
 
 		return result;
 	}
+
+	return Vector2D(0, 0);
 }
 
 Vector2D Vector2D::operator * (int n)

@@ -49,5 +49,5 @@ private:
 	bool ended;
 	bool standing;
 
-	void render(float posx, float posy);
+	void render(int posx, int posy);
 };

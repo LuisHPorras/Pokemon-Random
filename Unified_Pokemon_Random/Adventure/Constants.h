@@ -67,7 +67,8 @@ public:
 		FLYING,
 		FIGHTING,
 		ROCK,
-		TOTAL_TYPES
+		TOTAL_TYPES,
+		DEFAULT_TYPE
 	};
 
 	enum FightState {

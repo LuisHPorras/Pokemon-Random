@@ -9,6 +9,7 @@ public:
 	~Player_Trainer(void);
 
 	void setRelPos(Vector2D pos);
+	void swimmingRequest() { 42; }
 private:
 
 };

@@ -16,6 +16,8 @@ public:
 	void setSprite(Sprite* s) { sprite = s; }
 	void setClipSequence(int* seq) { clipSequence = seq; }
 	void setType(Constants::LayerType t) { type = t; }
+	Constants::LayerType getType() { return type; }
+	int getTile(Vector2D pos) { return clipSequence[pos.y * width + pos.x]; }
 
 private:
 

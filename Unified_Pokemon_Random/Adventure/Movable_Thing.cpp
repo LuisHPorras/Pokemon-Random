@@ -34,6 +34,9 @@ bool Movable_Thing::loadFromFile()
 	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setSequence(dim, sequence, timeInterval);
 	animation[Constants::KEY_PRESS_DIRECTION_RIGHT].setPosition(position*Constants::TILE_DIM);
 
+	if (!tallGrass.loadFromFile("sprites/wild_grass_small.png"))
+		return false;
+
 	return true;
 }
 
@@ -76,9 +79,23 @@ bool Movable_Thing::move(Orientation inOrientation)
 void Movable_Thing::animate()
 {
 	if (animation[orientation].isEnded())
+	{
 		animation[orientation].hold();
+		if (flagTallGrass)
+		{
+			renderTallGrass();
+			flagTallGrass = false;
+		}
+	}
 	else
+	{
 		animation[orientation].animate();
+		if (flagTallGrass)
+		{
+			renderTallGrass();
+			flagTallGrass = false;
+		}
+	}
 }
 
 void Movable_Thing::animate(Vector2D pos)
@@ -87,6 +104,11 @@ void Movable_Thing::animate(Vector2D pos)
 		animation[orientation].hold(pos*Constants::TILE_DIM);
 	else
 		animation[orientation].animate(pos*Constants::TILE_DIM);
+}
+
+void Movable_Thing::renderTallGrass()
+{
+	tallGrass.render(position.x * Constants::TILE_DIM, position.y * Constants::TILE_DIM + Constants::TILE_DIM/2);
 }
 
 void Movable_Thing::setRelPos(Vector2D pos)

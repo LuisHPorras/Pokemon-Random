@@ -80,18 +80,22 @@ void Adventure::events(SDL_Event& e, bool& quit)
 
 void Adventure::render()
 {
+	
 	//Render background
 	route_0.printSubMap(cameraPos.x, cameraPos.y, sceneDim.x, sceneDim.y);
 	
 	for (int i = 0; i < 5; i++)
-	{
-		trainers[i]->walk();
-		trainers[i]->setRelPos(cameraPos);
-		trainers[i]->animate();
-	}
+		for (int j = 0; j < route_0.getNumLayers();j++)
+		{
+			if(i==0)
+				Interaction::interaction(route_0.getLayer(j), &player);
+			Interaction::interaction(route_0.getLayer(j), trainers[i]);
+			trainers[i]->walk();
+			trainers[i]->setRelPos(cameraPos);
+			trainers[i]->animate();
+		}
 
 	player.animate();
-	
 }
 
 void Adventure::close()

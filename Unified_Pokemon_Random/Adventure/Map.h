@@ -13,6 +13,8 @@ public:
 	void loadFromFile();
 	void printMap();
 	void printSubMap(int x, int y, int w, int h);
+	int getNumLayers() { return numLayers; }
+	Layer* getLayer(int i) { return &layers[i]; }
 	int getWidth() { return width; }
 	int getHeight() { return height; }
 

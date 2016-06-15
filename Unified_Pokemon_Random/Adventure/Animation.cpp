@@ -179,7 +179,7 @@ void Animation::stand(Vector2D pos, int inPeriod)
 }
 
 //Renders the current frame
-void Animation::render(float posx, float posy) 
+void Animation::render(int posx, int posy) 
 {
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	currentClip = &clips[sequence[currentFrame]];
