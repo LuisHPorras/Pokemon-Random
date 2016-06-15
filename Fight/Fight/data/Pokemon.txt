@@ -1,2 +1,0 @@
-Dodrio	Flying	60	110	70	Texturas/dodrio_back.png
-Golem	Rock	80	110	130	Texturas/golem_front.png

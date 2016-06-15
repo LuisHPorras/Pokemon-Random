@@ -1,2 +1,0 @@
-DrillPeck	Flying	80
-JumpKick	Fighting	70
