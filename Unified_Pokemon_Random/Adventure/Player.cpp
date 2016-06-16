@@ -55,7 +55,14 @@ bool Player::loadFromFile()
 
 void Player::render(int x, int y)
 {
+	smaxHP = to_string(maxHP);
+	scurrentHP = to_string(currentHP);
+
+	tmaxHP.loadFromRenderedText(smaxHP);
+	tcurrentHP.loadFromRenderedText(scurrentHP);
+
 	Pokemon::render(x, y);
+	
 	tcurrentHP.render(posData.x + pcurrentHP.x, posData.y + pcurrentHP.y);
 	tmaxHP.render(posData.x + pmaxHP.x, posData.y + pmaxHP.y);
 }

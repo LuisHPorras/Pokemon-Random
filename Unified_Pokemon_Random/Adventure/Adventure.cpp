@@ -8,7 +8,7 @@ bool Adventure::loadFromFile()
 {
 	for (int i = 0; i < 2; i++)
 	{
-		trainers += new Movable_Trainer(rand() % 20, rand() % 20);
+		trainers += new Movable_Trainer(rand() % 19, rand() % 19);
 		trainers[i].loadFromFile();
 		trainers[i].setTrajectory(4, t);
 	}
@@ -55,7 +55,8 @@ void Adventure::events(SDL_Event& e, bool& quit)
 		}
 	if (movement != Constants::STAND)
 	{
-		player.move(movement);
+		if (!((player.getPos().x == route_0.getWidth() - 1 && movement == Constants::RIGHT) || (player.getPos().x == 0 && movement == Constants::LEFT) || (player.getPos().y == route_0.getHeight() - 2 && movement == Constants::DOWN) || (player.getPos().y == 0 && movement == Constants::UP)))
+			player.move(movement);
 		player.setBattleFlag(true);
 	}
 }
@@ -77,7 +78,7 @@ void Adventure::setCameraPos()
 	if (cameraPos.y > route_0.getHeight() - sceneDim.y)
 		cameraPos.y = route_0.getHeight() - sceneDim.y;
 
-	player.setRelPos(Vector2D(0, 0));
+	//player.setRelPos(Vector2D(0, 0));
 
 	if (cameraPos.x != 0 && cameraPos.x != route_0.getWidth() - sceneDim.x && (movement == Constants::RIGHT || movement == Constants::LEFT))
 		player.setRelPos(cameraPos);
@@ -94,28 +95,28 @@ void Adventure::setCameraPos()
 
 void Adventure::render()
 {
-	setCameraPos();
-
 	for (int i = 0; i < trainers.getNumber(); i++)
-	{
+		Interaction::interaction(&trainers[i], &player);
+	for (int i = 0; i < trainers.getNumber(); i++)
 		for (int j = 0; j < route_0.getNumLayers(); j++)
 		{
 			if (i == 0)
 				if (Interaction::interaction(route_0.getLayer(j), &player) == Constants::FIGHT)
 					request = Constants::FIGHT;
 			Interaction::interaction(route_0.getLayer(j), &trainers[i]);
-		}
+		}		
 
-		trainers[i].walk();
-		trainers[i].setRelPos(cameraPos);
-	}
-
+	setCameraPos();
 	//Render background
 	route_0.printMap(-cameraPos.x, -cameraPos.y);
 	//route_0.printSubMap(cameraPos.x, cameraPos.y, sceneDim.x, sceneDim.y);
 
 	for (int i = 0; i < trainers.getNumber(); i++)
+	{
+		trainers[i].walk();
+		trainers[i].setRelPos(cameraPos);
 		trainers[i].animate();
+	}
 
 	player.animate();
 }

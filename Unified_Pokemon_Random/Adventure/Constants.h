@@ -33,6 +33,7 @@ public:
 		START_SCREEN,
 		ADVENTURE,
 		FIGHT,
+		TRANSITION,
 		STATE_TOTAL
 	};
 

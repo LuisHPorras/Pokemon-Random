@@ -75,3 +75,9 @@ Constants::State Interaction::interaction(Layer* l, Player_Trainer* t)
 
 	return Constants::ADVENTURE;
 }
+
+void Interaction::interaction(Movable_Thing* t, Player_Trainer* p)
+{
+	if (t->getPos() == p->getPos())
+		p->setPos(p->getPrevPos());
+}

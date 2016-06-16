@@ -186,6 +186,10 @@ void Animation::render(int posx, int posy)
 {
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	currentClip = &clips[sequence[currentFrame]];
+	/*if (posx == -1 && posy == -1)
+	{
+		SDL_Rect renderQuad = { posx + (Constants::TILE_DIM / 2) - (Constants::PLAYER_WIDTH / 2),posy - 10 + (Constants::TILE_DIM) - (Constants::PLAYER_HEIGHT), Constants::PLAYER_WIDTH, Constants::PLAYER_HEIGHT };
+	}*/
 	SDL_Rect renderQuad = { posx + (Constants::TILE_DIM / 2) - (Constants::PLAYER_WIDTH / 2),posy - 10 + (Constants::TILE_DIM) - (Constants::PLAYER_HEIGHT), Constants::PLAYER_WIDTH, Constants::PLAYER_HEIGHT };
 	SDL_RenderCopy(gRenderer, sdlTexture, currentClip, &renderQuad);
 }

@@ -2,6 +2,11 @@
 
 World::World(): state(Constants::START_SCREEN)
 {
+	tic = timer.millis();
+	backPkmnNum = 10;
+	for (int i = 0; i < backPkmnNum; i++)
+		backPokemon += new Animation;
+	count = 0;
 }
 
 World::~World()
@@ -79,6 +84,66 @@ bool World::loadMedia()
 		return false;
 	}
 
+	if (!backPokemon[0].loadFromFile("Texturas/Wallpapers/pidgeot.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[1].loadFromFile("Texturas/Wallpapers/aerodactyl.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[2].loadFromFile("Texturas/Wallpapers/gardevoir.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[3].loadFromFile("Texturas/Wallpapers/mew.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[4].loadFromFile("Texturas/Wallpapers/ninetails.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[5].loadFromFile("Texturas/Wallpapers/persian.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[6].loadFromFile("Texturas/Wallpapers/skarmory.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[7].loadFromFile("Texturas/Wallpapers/swellow.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[8].loadFromFile("Texturas/Wallpapers/tropius.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
+	if (!backPokemon[9].loadFromFile("Texturas/Wallpapers/wingull.png"))
+	{
+		cout << "Failed to load startBack texture image" << endl;
+		return false;
+	}
+
 	if (!pokemonTitle.loadFromFile("Texturas/pokemon.png"))
 	{
 		cout << "Failed to load Title texture image!" << endl;
@@ -146,19 +211,55 @@ void World::render()
 	if (state == Constants::START_SCREEN)
 	{
 		startBack.render(0, 0);
+		if (backPokemon[count].isEnded())
+		{
+			count++;
+			if (count == 10)
+				count = 0;
+			int seq[4] = { 0, 0, 0, 0 };
+			int tinterval[4] = { 100, 100, 100, 100 };
+			backPokemon[count].setSequence(4, seq, tinterval);
+			backPokemon[count].setSpaceInterval(Vector2D(0, 0), Vector2D(200, 0));
+			backPokemon[count].start();
+		}
+		else
+			backPokemon[count].animate();
 		pokemonTitle.render(50, 50);
 		instructions.render(150, 225);
 		hitmonlee.render(150, 300);
 	}
-
-	if (fight.getState() == Constants::ADVENTURE)
+	if (state == Constants::TRANSITION)
 	{
-		state = Constants::ADVENTURE;
+		SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
+		toc = timer.millis() - tic;
+		if (toc >= 250)
+		{
+			switch (prevState)
+			{
+			case Constants::ADVENTURE:
+				state = Constants::FIGHT;
+				tic = timer.millis();
+				break;
+			case Constants::FIGHT:
+				state = Constants::ADVENTURE;
+				tic = timer.millis();
+				break;
+			}
+		}
+	}
+
+	if (fight.getRequest() == Constants::ADVENTURE)
+	{
+		tic = timer.millis();
+		state = Constants::TRANSITION;
+		prevState = Constants::FIGHT;
 		fight.clearRequest();
 	}
 	if (adventure.getRequest() == Constants::FIGHT)
 	{
-		state = Constants::FIGHT;
+		tic = timer.millis();
+		state = Constants::TRANSITION;
+		prevState = Constants::ADVENTURE;
 		adventure.clearRequest();
 	}
 }

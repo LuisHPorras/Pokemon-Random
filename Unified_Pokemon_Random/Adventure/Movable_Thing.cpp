@@ -115,3 +115,9 @@ void Movable_Thing::setRelPos(Vector2D pos)
 	camPos = pos;
 	animation[orientation].setSpaceInterval((prevPos - camPos)*Constants::TILE_DIM, (position - camPos)*Constants::TILE_DIM);
 }
+
+void Movable_Thing::setPos(Vector2D pos)
+{
+	position = pos;
+	animation[orientation].setSpaceInterval((prevPos - camPos)*Constants::TILE_DIM, (position - camPos)*Constants::TILE_DIM);
+}

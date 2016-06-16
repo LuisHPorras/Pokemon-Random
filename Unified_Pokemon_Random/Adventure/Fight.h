@@ -12,6 +12,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Dialog.h"
+#include "Timer.h"
 
 using namespace std;
 
@@ -34,6 +35,9 @@ class Fight
 	Vector2D cursor;
 	ListOf<Vector2D> option;
 	Constants::Orientation direction;
+	Timer timer;
+	int tic;
+	int toc;
 public:
 	//CONSTRUCTION - DESTRUCTION
 	Fight(void);
@@ -52,7 +56,7 @@ public:
 	void coordinateStates(SDL_Event &e);
 	void moveCursor();
 
-	Constants::State getState() { return request;}
+	Constants::State getRequest() { return request;}
 	void clearRequest() { request = Constants::FIGHT; }
 };
 

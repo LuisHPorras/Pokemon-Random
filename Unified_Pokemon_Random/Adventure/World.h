@@ -25,7 +25,8 @@ public:
 	void close();
 
 private:
-	Constants::State state; 
+	Constants::State state;
+	Constants::State prevState;
 
 	Fight fight;
 	Adventure adventure;
@@ -34,6 +35,14 @@ private:
 	Texture pokemonTitle;
 	Texture hitmonlee;
 	Texture instructions;
+
+	Timer timer;
+	int tic;
+	int toc;
+
+	ListOf<Animation> backPokemon;
+	int backPkmnNum;
+	int count;
 };
 
 	

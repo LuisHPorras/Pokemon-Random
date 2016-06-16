@@ -18,7 +18,7 @@ public:
 	void renderTallGrass();
 	void setRenderTallGrass() { flagTallGrass = true; }
 	void setOrientation(Constants::Orientation o) { orientation = o; }
-	void setPos(Vector2D pos) { position = pos; }
+	void setPos(Vector2D pos);
 	virtual void setRelPos(Vector2D pos);
 	Vector2D getPrevPos() { return prevPos; }
 

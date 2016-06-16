@@ -10,6 +10,7 @@ Player_Trainer::~Player_Trainer(void)
 
 void Player_Trainer::setRelPos(Vector2D pos)
 {
-	animation[orientation].setSpaceInterval((position-pos)*Constants::TILE_DIM, (position - pos)*Constants::TILE_DIM);	
+	camPos = pos;
+	animation[orientation].setSpaceInterval((position-camPos)*Constants::TILE_DIM, (position - camPos)*Constants::TILE_DIM);
 }
 

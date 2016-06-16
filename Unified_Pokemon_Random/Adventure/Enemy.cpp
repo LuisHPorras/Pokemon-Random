@@ -29,6 +29,8 @@ bool Enemy::loadFromFile()
 		success = false;
 	}
 
+	dexNum = 1 + rand() % 2;
+
 	success = Pokemon::loadFromFile();
 
 	return success;

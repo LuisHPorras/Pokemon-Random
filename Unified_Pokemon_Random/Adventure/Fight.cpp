@@ -12,6 +12,7 @@ Fight::Fight(void)
 	request = Constants::FIGHT;
 	busy = false;
 	effectiveness = 1.0f;
+	tic = timer.millis();
 }
 
 
@@ -81,38 +82,47 @@ void Fight::events(SDL_Event &e, bool &quit)
 	else
 	{
 		//Write events
-		coordinateStates(e);
 
-		if (busy == false)
+		toc = timer.millis() - tic;
+
+		if (toc >= 250)
 		{
-			if (state == Constants::ATTACKING)
-			{
-				for (int i = 0; i < 4; i++)
-					if (cursor == option[i])
-						effectiveness = pokemon[0].attacking(pokemon[1], pokemon[0].getAttacks()[i]);
+			coordinateStates(e);
 
-				cursor = option[0];
-				busy = true;
-			}
-
-			if (state == Constants::DEFENDING)
-			{
-				int random = rand() % 5;
-				effectiveness = pokemon[1].attacking(pokemon[0], pokemon[1].getAttacks()[random]);
-				cout << pokemon[1].getAttacks()[random].getName() << endl;
-
-				cursor = option[0];
-				busy = true;
-			}
-
-			if (effectiveness == -1.0f)
-			{
-				request = Constants::ADVENTURE;
-				state = Constants::MAIN;
-				effectiveness = 1.0f;
-				busy = false;
-			}
+			tic = timer.millis();
 		}
+		
+			if (busy == false)
+			{
+				if (state == Constants::ATTACKING)
+				{
+					for (int i = 0; i < 4; i++)
+						if (cursor == option[i])
+							effectiveness = pokemon[0].attacking(pokemon[1], pokemon[0].getAttacks()[i]);
+
+					cursor = option[0];
+					busy = true;
+				}
+
+				if (state == Constants::DEFENDING)
+				{
+					int random = rand() % 5;
+					effectiveness = pokemon[1].attacking(pokemon[0], pokemon[1].getAttacks()[random]);
+					cout << pokemon[1].getAttacks()[random].getName() << endl;
+
+					cursor = option[0];
+					busy = true;
+				}
+
+				if (effectiveness == -1.0f)
+				{
+					request = Constants::ADVENTURE;
+					state = Constants::MAIN;
+					effectiveness = 1.0f;
+					busy = false;
+				}
+			}
+
 
 		dialog.events(state, cursor, pokemon[0].getAttacks(), effectiveness);
 	}
@@ -170,12 +180,17 @@ void Fight::coordinateStates(SDL_Event &e)
 			break;
 		}
 
-		break;
-
-	case SDLK_z:
 		if (state == Constants::ATTACK)
 		{
 			state = Constants::ATTACKING;
+			break;
+		}
+
+		if (state == Constants::DEFENDING)
+		{
+			state = Constants::MAIN;
+			cursor = option[0];
+			busy = false;
 			break;
 		}
 
