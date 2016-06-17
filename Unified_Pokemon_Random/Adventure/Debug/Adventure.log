@@ -1,0 +1,14 @@
+﻿  Animation.cpp
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(82): warning C4018: '>': signed/unsigned mismatch
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(119): warning C4018: '>': signed/unsigned mismatch
+c:\users\maria jose\documents\github\pokemon-random\unified_pokemon_random\adventure\animation.cpp(159): warning C4018: '>': signed/unsigned mismatch
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  World.cpp
+  Player_Trainer.cpp
+  Movable_Trainer.cpp
+  Movable_Thing.cpp
+  Main.cpp
+  Interaction.cpp
+  Adventure.cpp
+  Adventure.vcxproj -> C:\Users\Maria Jose\Documents\GitHub\Pokemon-Random\Unified_Pokemon_Random\Debug\Adventure.exe
